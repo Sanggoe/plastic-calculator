@@ -111,8 +111,7 @@
 #### View 적인 요소
 
 * 반응형 웹 형태로 하여 PC 또는 스마트폰에서 볼 수 있도록 개발
-* Vue.js 프레임 워크를 사용하여 좀 더 빠르고 간편한 개발
-* 자바스크립트 및 라이브러리를 사용
+* HTML CSS, Javascript 및 라이브러리를 사용하여 개발
 
 <br/>
 
@@ -124,9 +123,9 @@
 
 <br/>
 
-### 4. 개발을 위해 공부를 병행해야 할 분야
+### 4. 개발을 위해 필요한 분야
 
-* Vue.js 및 Javascript
+* HTML CSS 및 Javascript
 * Spring Framework
 * JSP
 * Server-Client간 Data의 흐름 개념
