@@ -142,7 +142,7 @@
 
 <br/>
 
-### 3. 개발을 위해 필요한 분야
+### 5. 개발을 위해 필요한 분야
 
 * HTML CSS 및 Javascript
 * Java Spring Framework
