@@ -1,0 +1,45 @@
+<!--
+가변 마진 이용 하기
+
+(가변 마진을 적용할 마진값 / 적용할 박스를 감싸고
+ 있는 박스의 가로 너비 * 100 = 가변 마진값)
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #wrap {
+            width: 90%;
+            margin: 0 auto;
+            border: 2px solid #000;
+        }
+
+        #wrap div {
+            display: inline-block;
+            width: 31.25%;
+            height: 300px;
+        }
+
+        #wrap .box01 {
+            margin-right: 37.5%;
+            background: greenyellow;
+        }
+
+        #wrap .box02 {
+            background: aqua;
+        }
+
+
+    </style>
+</head>
+<body> <!--960px 300px-->
+<div id="wrap">
+    <div class="box01"></div>
+    <div class="box02"></div>
+</div>
+</body>
+</html>

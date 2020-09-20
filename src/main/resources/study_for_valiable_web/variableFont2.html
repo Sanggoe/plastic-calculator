@@ -1,0 +1,34 @@
+<!--
+가변 폰트 이용 하기
+
+(가변 폰트를 적용할 글자 크기값 / 적용할 요소를
+ 감싸고 있는 요소의 글자 크기값 = 가변 패딩값)
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            font-size: 100%;
+        }
+
+        .para {
+            font-size: 4em;
+        }
+
+        .para p {
+            font-size: 50%;
+        }
+    </style>
+</head>
+<body> <!--960px 300px-->
+<div class="para">
+    가변 폰트1
+    <p>가변 폰트2</p>
+</div>
+</body>
+</html>

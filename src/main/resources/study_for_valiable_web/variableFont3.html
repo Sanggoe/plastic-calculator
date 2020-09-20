@@ -1,0 +1,51 @@
+<!--
+가변 폰트 이용 하기
+
+(각 단위를 적용할 크기값 * 브라우저의 너비값 ) / 100 = 크기값
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            font-size: 100%;
+        }
+
+        /* 브라우저의 너비를 100을 기준으로 % */
+        .vw {
+            font-size: 5vw;
+        }
+
+        /* 브라우저의 높이를 100을 기준으로 % */
+        .vh {
+            font-size: 5vh;
+        }
+
+        /* 브라우저의 너비나 높이 중 작은 쪽을 100을 기준으로 % */
+        .vmin {
+            font-size: 5vmin;
+        }
+
+        /* 브라우저의 너비나 높이 중 큰 쪽을 100을 기준으로 % */
+        .vmax {
+            font-size: 5vmax;
+        }
+
+        .para {
+            font-size: 96px;
+        }
+
+    </style>
+</head>
+<body> <!--960px 300px-->
+<p class="vw">vw 단위</p>
+<p class="vh">vh 단위</p>
+<p class="vmin">vmin 단위</p>
+<p class="vmax">vmax 단위</p>
+<p class="para">vw 단위</p>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Plastic Calculator</title>
+    <style>
+        /*initial*/
+        body {
+            background-image: url(/images/boyeong.gif);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        /*content*/
+        #wrap {
+            width: 100%;
+            margin: 0 auto;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        #main_section {
+            font-size: 3vmin;
+            border: 2px solid black;
+            border-radius: 30px;
+            width: 70%;
+            height: 50%;
+            position: relative;
+            margin: 7% auto;
+            overflow: hidden;
+            background-color: white;
+        }
+
+        .inform > h1 {
+            font-size: 2em;
+        }
+
+        #name {
+            font-size: 4.5vmin;
+            width: 30%;
+            margin-bottom: 2%;
+        }
+
+        #next {
+            font-size: 4vmin;
+            width: 20%;
+            margin-bottom: 4%;
+            background: cornflowerblue;
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="wrap">
+    <section id="main_section">
+        <form action="/calculator/survey">
+            <div class="inform">
+                <h1>플라스틱 발자국 계산기</h1>
+                <p><b>매년 1270만 톤의 플라스틱이 바다에 흘러들어
+                    쓰레기 섬이 만들어지고 있습니다.</b></p>
+
+                <p>하지만 당신이 남긴 플라스틱 발자국도
+                    함께 있다는 사실을 알고 계시나요?</p>
+                <p>지금부터 당신의 플라스틱 발자국을 함께 알아봅시다.</p>
+            </div>
+            <div class="form-group">
+                <h4><label for="name">이름을 입력해주세요</label></h4>
+                <input type="text" id="name" name="name" placeholder="Name">
+            </div>
+            <button type="submit" id="next">Next!</button>
+        </form>
+    </section>
+</div>
+
+</body>
+</html>

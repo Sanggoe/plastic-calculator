@@ -128,17 +128,17 @@
 
 #### View 적인 요소
 
-* 반응형 웹 형태로 하여 PC 또는 스마트폰에서 볼 수 있도록 개발
-* HTML CSS, Javascript 및 라이브러리를 사용하여 개발
+* 반응형 웹 형태로 볼 수 있도록 개발
+* HTML CSS 및 라이브러리를 사용하여 개발
 
 <br/>
 
 #### Server 및 Data 처리에 대한 요소
 
-* Java 언어를 선택, Spring 프레임 워크로 개발
+* Java 언어를 선택, Spring boot 프레임 워크로 개발
 * MVC 패턴 적용 (Model, View, Controller)
-* 데이터는 JSON 형태로 주고 받기
-* 서버는 최대한 무료 - azure 학생 계정 or githubio or AWS(는 과금 경험 때문에 지양...)
+* 서버는 최대한 무료 서버로 알아보기 - azure 학생 계정 or githubio or AWS(는 과금 경험 때문에 지양...)
+* DB 까지는 사용할 필요 없을 것 같음
 
 <br/>
 
@@ -147,4 +147,4 @@
 * HTML CSS 및 Javascript
 * Java Spring Framework
 * Server-Client간 Data의 흐름 개념
-* JSON 타입
+* JSON 타입??
