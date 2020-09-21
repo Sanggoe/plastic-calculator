@@ -6,14 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class CalculatorController {
 
     CalculateService calculateService;
-
-
     UserInformation information = new UserInformation();
 
     @Autowired
@@ -28,20 +27,16 @@ public class CalculatorController {
         return "/calculator/survey1";
     }
 
-    @GetMapping(value = "/calculator/survey2")
-    public String confirmSurvey2(Model model) {
-        //Inform.class
+    @PostMapping("/survey2")
+    public String confirmSurvey2(@RequestParam("pla1") int pla1, @RequestParam("pla2") int pla2, Model model) {
+        information.setPlasticBag(pla1);
+        information.setPlasticBuffer(pla2);
+        model.addAttribute("name", information.getName());
+        model.addAttribute("pla1", pla1);
+        model.addAttribute("pla2", pla2);
+        return "/calculator/survey2";
     }
 
-    /*
-        @PostMapping("/calculator/survey")
-        public String confirm(UserInformationForm informationForm) {
-            UserInformation information = new UserInformation();
-            information.setName(informationForm.getName());
-
-            return "String";
-        }
-    */
 //    @GetMapping("/calculator/survey")
 //    @ResponseBody
 //    public Inform informApi(@RequestParam("name") String name) {
@@ -49,19 +44,4 @@ public class CalculatorController {
 //        inform.setName(name);
 //        return inform;
 //    }
-//
-//
-    static class Inform {
-        private String name;
-        private int t;
-        private int t1;
-
-        public String getName() {
-            return name;
-        }
-
-        public void setName(String name) {
-            this.name = name;
-        }
-    }
 }
