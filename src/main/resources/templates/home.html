@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <title>Plastic Calculator</title>
     <script>
-        function input_Text() {
-            var data = document.getElementById("name").value; //'input 태그의 value값'
+        function inputText() {
+            var data = document.getElementById("name").value;
             location.href = "/calculator/survey1" + "?name=" + data;
         }
     </script>
@@ -74,7 +74,7 @@
             <h4><label for="name">이름을 입력해주세요</label></h4>
             <input type='name' id='name' name="name" placeholder="Name"/>
         </div>
-        <input type='button' id="next" onclick='input_Text()' value='버튼'/>
+        <input type='button' id="next" onclick='inputText()' value='버튼'/>
     </section>
 </div>
 
