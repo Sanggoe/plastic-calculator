@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Survey1</title>
+    <style>
+        body {
+            background-image: url(/images/jiheon.jpg);
+            background-repeat: no-repeat;
+            background-size: 50%;
+        }
+    </style>
+</head>
+<body>
+<p th:text="${name} + '님의 플라스틱 사용량을 입력하세요.'"></p>
+<p>Hㅏ 힘들지만 재미있다!</p>
+<form action="">
+    <input type='range' id='range' name='usernumber' min='0' max='100' value='50' step='10'/>
+    <input type='range' id='range' name='usernumber' min='0' max='100' value='50' step='10'/>
+    <input type='range' id='range' name='usernumber' min='0' max='100' value='50' step='10'/>
+    <input type='range' id='range' name='usernumber' min='0' max='100' value='50' step='10'/>
+</form>
+</body>
+</html>
