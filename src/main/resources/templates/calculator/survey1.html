@@ -9,45 +9,223 @@
         }
     </script>
     <style>
+        header {
+            font-size: 4vmin;
+            text-align: center;
+            width: 70%;
+            margin: 0 auto;
+            background-color: yellow;
+        }
+
         body {
-            background-image: url(/images/jiheon.jpg);
-            background-repeat: no-repeat;
-            background-size: 50%;
+            width: 70%;
+            margin: 0 auto;
+            background-color: antiquewhite;
         }
 
-        .plaText {
-            width: 40px;
-            height: 40px;
-            font-size: 2em;
-            border: none;
-
+        /* main content */
+        #wrap {
+            width: 70%;
+            margin: auto;
+            background-color: greenyellow;
         }
+
+        /*  each of left group */
+        .left_locate {
+            text-align: center;
+            width: 43%;
+            margin: 1% auto;
+            padding: 1%;
+            float: left;
+            background-color: aqua;
+        }
+
+        /*  each of right group */
+        .right_locate {
+            text-align: center;
+            width: 43%;
+            margin: 1% auto;
+            padding: 1%;
+            float: right;
+            background-color: green;
+        }
+
+        /*  image division */
+        .img_div {
+            display: inline-block;
+            width: 23%;
+            margin: 0 auto;
+            padding: 1%;
+            float: left;
+            background-color: cornflowerblue;
+        }
+
+        /*  image */
+        .img {
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        /* image name */
+        .kinds {
+            position: center;
+            margin: 0 auto;
+            font-size: 2.5vmin;
+        }
+
+        /*  button & p tag division */
+        .slide_button_area {
+            display: inline-block;
+            width: 71%;
+            margin-top: 1%;
+            margin-bottom: 1%;
+            padding: 1%;
+            float: right;
+            background-color: white;
+        }
+
+        /* p tag */
+        .text {
+            position: center;
+            font-size: 2.5vmin;
+        }
+
+        /* result of choose button */
+        .result_area {
+            display: inline-block;
+            font-size: 2.5vmin;
+            width: 10%;
+            border: black solid thin;
+        }
+
+        /* slide button size */
+        .slide_button {
+            margin: 10% 0 0 0;
+            width: 70%;
+        }
+
+        /* next button area */
+        #next_area {
+            text-align: right;
+        }
+
+        /* next button size */
+        #next {
+            font-size: 2vmin;
+            width: 20%;
+            padding: 2%;
+            margin-bottom: 4%;
+            display: inline-block;
+            background: cornflowerblue;
+        }
+
+        #next_area > p {
+            display: inline-block;
+        }
+
     </style>
 </head>
 <body>
-<p th:text="${name} + '님의 플라스틱 사용량을 입력하세요.'">플라스틱 사용량 입력</p>
-<p>Hㅏ 힘들지만 재미있다!</p>
-<form action="/survey2" method="post">
-    <div>
-        <input type='range' id='pla1' name='pla1' min='0' max='30' value='0' step='1' onchange="setValue(this)"/>
-        <input type="text" id="pla1Prt" class="plaText" name="pla1Prt" placeholder="0" readonly>
+<header>
+    <p th:text="${name} + '님의 플라스틱 사용량을 입력하세요.'">플라스틱 사용량 입력</p>
+</header>
+<div id="wrap">
+    <form action="/survey2" method="post">
+        <div class="left_locate">
+            <div class="img_div">
+                <img src="/images/boyeong.gif" class="img">
+                <p class="kinds">보영누나</p>
+            </div>
+            <div class="slide_button_area">
+                <p class="text">0 <input type="range" id="pet1" class="slide_button" name="pet1" min='0' max='30'
+                                         value='0'
+                                         step='1' onchange="setValue(this)"/> 30</p>
+                <p class="text">1주에 <input type="text" id="pet1Prt" class="result_area" name="pet1Prt" placeholder="0"
+                                           readonly>개 사용합니다.</p>
 
-        <input type='range' id='pla2' name='pla2' min='0' max='30' value='0' step='1' onchange="setValue(this)"/>
-        <input type="text" id="pla2Prt" class="plaText" name="pla2Prt" placeholder="0" readonly>
-    </div>
-    <div>
-        <input type='range' id='pla3' name='pla3' min='0' max='10' value='0' step='1' onchange="setValue(this)"/>
-        <input type="text" id="pla3Prt" class="plaText" name="pla3Prt" placeholder="0" readonly>
-        <input type='range' id='pla4' name='pla4' min='0' max='10' value='0' step='1' onchange="setValue(this)"/>
-        <input type="text" id="pla4Prt" class="plaText" name="pla4Prt" placeholder="0" readonly>
-    </div>
-    <div>
-        <input type='range' id='pla5' name='pla5' min='0' max='30' value='0' step='1' onchange="setValue(this)"/>
-        <input type="text" id="pla5Prt" class="plaText" name="pla5Prt" placeholder="0" readonly>
-        <input type='range' id='pla6' name='pla6' min='0' max='30' value='0' step='1' onchange="setValue(this)"/>
-        <input type="text" id="pla6Prt" class="plaText" name="pla6Prt" placeholder="0" readonly>
-    </div>
-    <input type="submit">
-</form>
+            </div>
+        </div>
+
+        <div class="right_locate">
+            <div class="img_div">
+                <img src="/images/boyeong.gif" class="img">
+                <p class="kinds">보영누나</p>
+            </div>
+            <div class="slide_button_area">
+                <p class="text">0 <input type="range" id="pet2" class="slide_button" name="pet2" min='0' max='30'
+                                         value='0'
+                                         step='1' onchange="setValue(this)"/> 30</p>
+                <p class="text">1주에 <input type="text" id="pet2Prt" class="result_area" name="pet2Prt" placeholder="0"
+                                           readonly>개 사용합니다.</p>
+            </div>
+        </div>
+
+        <div class="left_locate">
+            <div class="img_div">
+                <img src="/images/jiheon.jpg" class="img">
+                <p class="kinds">지헌이</p>
+            </div>
+            <div class="slide_button_area">
+                <p class="text">0 <input type="range" id="contain" class="slide_button" name="contain" min='0' max='30'
+                                         value='0'
+                                         step='1' onchange="setValue(this)"/> 30</p>
+                <p class="text">1주에 <input type="text" id="containPrt" class="result_area" name="containPrt"
+                                           placeholder="0"
+                                           readonly>개 사용합니다.</p>
+
+            </div>
+        </div>
+
+        <div class="right_locate">
+            <div class="img_div">
+                <img src="/images/jiheon.jpg" class="img">
+                <p class="kinds">지헌이</p>
+            </div>
+            <div class="slide_button_area">
+                <p class="text">0 <input type="range" id="eggPlt" class="slide_button" name="eggPlt" min='0' max='30'
+                                         value='0'
+                                         step='1' onchange="setValue(this)"/> 30</p>
+                <p class="text">1주에 <input type="text" id="eggPltPrt" class="result_area" name="eggPltPrt"
+                                           placeholder="0"
+                                           readonly>개 사용합니다.</p>
+            </div>
+        </div>
+
+        <div class="left_locate">
+            <div class="img_div">
+                <img src="/images/boyeong.gif" class="img">
+                <p class="kinds">보영누나</p>
+            </div>
+            <div class="slide_button_area">
+                <p class="text">0 <input type="range" id="glove" class="slide_button" name="glove" min='0' max='30'
+                                         value='0'
+                                         step='1' onchange="setValue(this)"/> 30</p>
+                <p class="text">1주에 <input type="text" id="glovePrt" class="result_area" name="glovePrt" placeholder="0"
+                                           readonly>개 사용합니다.</p>
+
+            </div>
+        </div>
+
+        <div class="right_locate">
+            <div class="img_div">
+                <img src="/images/boyeong.gif" class="img">
+                <p class="kinds">보영누님</p>
+            </div>
+            <div class="slide_button_area">
+                <p class="text">0 <input type="range" id="clean1" class="slide_button" name="clean1" min='0' max='30'
+                                         value='0'
+                                         step='1' onchange="setValue(this)"/> 30</p>
+                <p class="text">1주에 <input type="text" id="clean1Prt" class="result_area" name="clean1Prt"
+                                           placeholder="0"
+                                           readonly>개 사용합니다.</p>
+            </div>
+        </div>
+
+        <div id="next_area" class="right_locate">
+            <p th:text="${page} + ' / 10 &nbsp'" >n / 10</p>
+            <input type="submit" id="next" value="Next">
+        </div>
+    </form>
+</div>
 </body>
 </html>

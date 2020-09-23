@@ -3,23 +3,26 @@ package com.yeonji.sanggoe.plastic.domain;
 public class UserInformation {
 
     private String name;
-    private int plasticPetBottle;
+    private int plasticPetSmallBottle;
+    private int plasticPetBigBottle;
     private int plasticContainer;
     private int plasticEggPlate;
     private int plasticGlove;
-    private int plasticTrashBag;
     private int plasticCleanner;
+    private int plasticShampoo;
     private int plasticToothbrush;
     private int plasticToothpaste;
     private int plasticCleansing;
     private int plasticCosmetics;
-    private int plasticBag;
-    private int plasticWrap;
+    private int plasticOrderFood;
     private int plasticSpoon;
     private int plasticStraw;
-    private int plasticBuffer;
+    private int plasticTakeoutCup;
+    private int plasticBagBig;
+    private int plasticBagMiddle;
+    private int plasticBagSmall;
 
-    private int page=0; // set 대신 ++
+    private int page = 0; // set 대신 ++
     private int trashTotalWeight; // 계산식으로 set
     private char score; // 계산식으로 set
 
@@ -31,12 +34,20 @@ public class UserInformation {
         this.name = name;
     }
 
-    public int getPlasticPetBottle() {
-        return plasticPetBottle;
+    public int getPlasticPetSmallBottle() {
+        return plasticPetSmallBottle;
     }
 
-    public void setPlasticPetBottle(int plasticPetBottle) {
-        this.plasticPetBottle = plasticPetBottle;
+    public void setPlasticPetSmallBottle(int plasticPetSmallBottle) {
+        this.plasticPetSmallBottle = plasticPetSmallBottle;
+    }
+
+    public int getPlasticPetBigBottle() {
+        return plasticPetBigBottle;
+    }
+
+    public void setPlasticPetBigBottle(int plasticPetBigBottle) {
+        this.plasticPetBigBottle = plasticPetBigBottle;
     }
 
     public int getPlasticContainer() {
@@ -63,20 +74,20 @@ public class UserInformation {
         this.plasticGlove = plasticGlove;
     }
 
-    public int getPlasticTrashBag() {
-        return plasticTrashBag;
-    }
-
-    public void setPlasticTrashBag(int plasticTrashBag) {
-        this.plasticTrashBag = plasticTrashBag;
-    }
-
     public int getPlasticCleanner() {
         return plasticCleanner;
     }
 
     public void setPlasticCleanner(int plasticCleanner) {
         this.plasticCleanner = plasticCleanner;
+    }
+
+    public int getPlasticShampoo() {
+        return plasticShampoo;
+    }
+
+    public void setPlasticShampoo(int plasticShampoo) {
+        this.plasticShampoo = plasticShampoo;
     }
 
     public int getPlasticToothbrush() {
@@ -111,20 +122,12 @@ public class UserInformation {
         this.plasticCosmetics = plasticCosmetics;
     }
 
-    public int getPlasticBag() {
-        return plasticBag;
+    public int getPlasticOrderFood() {
+        return plasticOrderFood;
     }
 
-    public void setPlasticBag(int plasticBag) {
-        this.plasticBag = plasticBag;
-    }
-
-    public int getPlasticWrap() {
-        return plasticWrap;
-    }
-
-    public void setPlasticWrap(int plasticWrap) {
-        this.plasticWrap = plasticWrap;
+    public void setPlasticOrderFood(int plasticOrderFood) {
+        this.plasticOrderFood = plasticOrderFood;
     }
 
     public int getPlasticSpoon() {
@@ -143,12 +146,36 @@ public class UserInformation {
         this.plasticStraw = plasticStraw;
     }
 
-    public int getPlasticBuffer() {
-        return plasticBuffer;
+    public int getPlasticTakeoutCup() {
+        return plasticTakeoutCup;
     }
 
-    public void setPlasticBuffer(int plasticBuffer) {
-        this.plasticBuffer = plasticBuffer;
+    public void setPlasticTakeoutCup(int plasticTakeoutCup) {
+        this.plasticTakeoutCup = plasticTakeoutCup;
+    }
+
+    public int getPlasticBagBig() {
+        return plasticBagBig;
+    }
+
+    public void setPlasticBagBig(int plasticBagBig) {
+        this.plasticBagBig = plasticBagBig;
+    }
+
+    public int getPlasticBagMiddle() {
+        return plasticBagMiddle;
+    }
+
+    public void setPlasticBagMiddle(int plasticBagMiddle) {
+        this.plasticBagMiddle = plasticBagMiddle;
+    }
+
+    public int getPlasticBagSmall() {
+        return plasticBagSmall;
+    }
+
+    public void setPlasticBagSmall(int plasticBagSmall) {
+        this.plasticBagSmall = plasticBagSmall;
     }
 
     public int getPage() {
@@ -157,10 +184,6 @@ public class UserInformation {
 
     public void setPage(int page) {
         this.page = page;
-    }
-
-    public void nextPage() {
-        this.page++;
     }
 
     public int getTrashTotalWeight() {

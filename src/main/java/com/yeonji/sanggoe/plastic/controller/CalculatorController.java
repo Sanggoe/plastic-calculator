@@ -23,18 +23,30 @@ public class CalculatorController {
     @GetMapping(value = "/calculator/survey1")
     public String confirmSurvey(@RequestParam("name") String name, Model model) {
         information.setName(name);
+        information.setPage(1);
         model.addAttribute("name", name);
+        model.addAttribute("page", information.getPage());
         return "/calculator/survey1";
     }
 
     @PostMapping("/survey2")
-    public String confirmSurvey2(@RequestParam("pla1") int pla1, @RequestParam("pla2") int pla2, Model model) {
-        information.setPlasticBag(pla1);
-        information.setPlasticBuffer(pla2);
+    public String confirmSurvey2(@RequestParam("pet1") int pet1, @RequestParam("pet2") int pet2,
+                                 @RequestParam("contain") int contain, @RequestParam("eggPlt") int eggPlt,
+                                 @RequestParam("glove") int glove, @RequestParam("clean1") int clean1, Model model) {
+        information.setPlasticPetBigBottle(pet1);
+        information.setPlasticPetSmallBottle(pet2);
+        information.setPlasticContainer(contain);
+        information.setPlasticEggPlate(eggPlt);
+        information.setPlasticGlove(glove);
+        information.setPlasticCleanner(clean1);
         model.addAttribute("name", information.getName());
-        model.addAttribute("pla1", pla1);
-        model.addAttribute("pla2", pla2);
-        return "/calculator/survey2";
+        model.addAttribute("pet1", pet1);
+        model.addAttribute("pet2", pet2);
+        model.addAttribute("contain", contain);
+        model.addAttribute("eggPlt", eggPlt);
+        model.addAttribute("glove", glove);
+        model.addAttribute("clean1", clean1);
+        return "test2";
     }
 
 //    @GetMapping("/calculator/survey")
