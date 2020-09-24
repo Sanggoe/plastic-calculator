@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class CalculatorController {
 
     CalculateService calculateService;
-    UserInformation information = new UserInformation();
+    UserInformation info = new UserInformation();
 
     @Autowired
     public CalculatorController(CalculateService calculateService) {
@@ -22,10 +22,10 @@ public class CalculatorController {
 
     @GetMapping(value = "/calculator/survey1")
     public String confirmSurvey(@RequestParam("name") String name, Model model) {
-        information.setName(name);
-        information.setPage(1);
+        info.setName(name);
+        info.setPage(1);
         model.addAttribute("name", name);
-        model.addAttribute("page", information.getPage());
+        model.addAttribute("page", info.getPage());
         return "/calculator/survey1";
     }
 
@@ -33,27 +33,33 @@ public class CalculatorController {
     public String confirmSurvey2(@RequestParam("pet1") int pet1, @RequestParam("pet2") int pet2,
                                  @RequestParam("contain") int contain, @RequestParam("eggPlt") int eggPlt,
                                  @RequestParam("glove") int glove, @RequestParam("clean1") int clean1, Model model) {
-        information.setPlasticPetBigBottle(pet1);
-        information.setPlasticPetSmallBottle(pet2);
-        information.setPlasticContainer(contain);
-        information.setPlasticEggPlate(eggPlt);
-        information.setPlasticGlove(glove);
-        information.setPlasticCleanner(clean1);
-        model.addAttribute("name", information.getName());
+        info.setPage(2);
+        info.setPlasticPetBigBottle(pet1);
+        info.setPlasticPetSmallBottle(pet2);
+        info.setPlasticContainer(contain);
+        info.setPlasticEggPlate(eggPlt);
+        info.setPlasticGlove(glove);
+        info.setPlasticCleanner(clean1);
+        model.addAttribute("name", info.getName());
         model.addAttribute("pet1", pet1);
         model.addAttribute("pet2", pet2);
         model.addAttribute("contain", contain);
         model.addAttribute("eggPlt", eggPlt);
         model.addAttribute("glove", glove);
         model.addAttribute("clean1", clean1);
-        return "test2";
+        return "/calculator/survey2";
     }
 
-//    @GetMapping("/calculator/survey")
-//    @ResponseBody
-//    public Inform informApi(@RequestParam("name") String name) {
-//        Inform inform = new Inform();
-//        inform.setName(name);
-//        return inform;
-//    }
+    @PostMapping("/waiting")
+    public String waitingPage(Model model) {
+        info.setPage(4);
+        model.addAttribute("name", info.getName());
+        model.addAttribute("page", info.getPage());
+        return "/calculator/waiting";
+    }
+
+    @PostMapping("/result1")
+    public String showResult1() {
+        return "/calculator/result1";
+    }
 }

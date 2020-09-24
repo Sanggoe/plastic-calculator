@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Survey2</title>
+    <style>
+        body {
+            background-image: url(../static/images/jiheon.jpg);
+            background-repeat: no-repeat;
+            background-size: 50%;
+        }
+    </style>
+</head>
+<body>
+<p th:text="${name} + '님은 두 번째 조사장에 진입했습니다.'"></p>
+<h1>두 번째 페이지다!</h1>
+<p th:text="'첫 번쨰 : ' + ${pet1}"></p>
+<p th:text="'두 번쨰 : ' + ${pet2}"></p>
+<p th:text="'세 번쨰 : ' + ${contain}"></p>
+<p th:text="'네 번쨰 : ' + ${eggPlt}"></p>
+<p th:text="'다섯번쨰 : ' + ${glove}"></p>
+<p th:text="'여섯번쨰 : ' + ${clean1}"></p>
+</body>
+</html>

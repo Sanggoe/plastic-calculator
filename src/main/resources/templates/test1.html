@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Survey1</title>
+    <script language="JavaScript">
+        function setValue(input) {
+            document.getElementById(input.name + "Prt").value = input.value; // input 태그의 value값을 넣기
+        }
+    </script>
+    <style>
+        footer {
+            font-size: 1.5em;
+            text-align: center;
+        }
+
+        body {
+
+        }
+
+        /*content*/
+        #wrap {
+            width: 100%;
+            margin: 0 auto;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .question {
+            /*horiz-align: center;*/
+        }
+
+        .img {
+            float: left
+        }
+
+        .plaText {
+            width: 40px;
+            height: 40px;
+            font-size: 1em;
+            border: none;
+
+        }
+    </style>
+</head>
+<footer>
+    <p th:text="${name} + '님의 플라스틱 사용량을 입력하세요.'">플라스틱 사용량 입력</p>
+</footer>
+<body>
+<div id="wrap">
+    <form action="/survey2" method="post">
+        <input type="submit">
+    </form>
+        <div id="row1" class="question">
+            <div class="img">
+                <img src="/images/jiheon.jpg" width="100px">
+            </div>
+            0<input type='range' id='pet1' name='pet1' min='0' max='30' value='0' step='1'
+                    onchange="setValue(this)"/>30
+            <input type="text" id="pet1Prt" class="plaText" name="pet1Prt" placeholder="0" readonly>
+
+            <div class="img">
+                <img src="/images/jiheon.jpg" width="100px">
+            </div>
+            0<input type='range' id='pet2' name='pet2' min='0' max='30' value='0' step='1'
+                    onchange="setValue(this)"/>10
+            <input type="text" id="pet2Prt" class="plaText" name="pet2Prt" placeholder="0" readonly>
+        </div>
+
+        <div id="row2" class="question">
+            <div class="img">
+                <img src="/images/jiheon.jpg" width="100px">
+            </div>
+            0<input type='range' id='contain' name='contain' min='0' max='30' value='0' step='1'
+                    onchange="setValue(this)"/>30
+            <input type="text" id="containPrt" class="plaText" name="containPrt" placeholder="0" readonly>
+
+            <div class="img">
+                <img src="/images/jiheon.jpg" width="100px">
+            </div>
+            0<input type='range' id='eggPlt' name='eggPlt' min='0' max='30' value='0' step='1'
+                    onchange="setValue(this)"/>30
+            <input type="text" id="eggPltPrt" class="plaText" name="eggPltPrt" placeholder="0" readonly>
+        </div>
+        <div id="row3" class="question">
+            <div class="img">
+                <img src="/images/jiheon.jpg" width="100px">
+            </div>
+            0<input type='range' id='glove' name='glove' min='0' max='30' value='0' step='1'
+                    onchange="setValue(this)"/>30
+            <input type="text" id="glovePrt" class="plaText" name="glovePrt" placeholder="0" readonly>
+
+            <div class="img">
+                <img src="/images/jiheon.jpg" width="100px">
+            </div>
+            0<input type='range' id='clean1' name='clean1' min='0' max='30' value='0' step='1'
+                    onchange="setValue(this)"/>30
+            <input type="text" id="clean1Prt" class="plaText" name="clean1Prt" placeholder="0" readonly>
+        </div>
+        <input type="submit">
+    </form>
+</div>
+</body>
+</html>

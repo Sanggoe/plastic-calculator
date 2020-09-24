@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Waing</title>
+    <style>
+        body {
+            width: 70%;
+            margin: 0 auto;
+            background-color: antiquewhite;
+        }
+
+        /* main content */
+        #wrap {
+            width: 70%;
+            margin: 0 auto;
+            background-image: url("static/images/p4_garbagedump.gif");
+        }
+
+        #earth_area {
+            width: 80%;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        #earth_area > h3 {
+            font-size: 3vmin;
+            text-align: center;
+            width: 70%;
+            margin: 0 auto;
+            background-color: yellow;
+        }
+
+        #earth_area > p {
+            margin: 0 auto;
+        }
+
+        #earth {
+            width: 30%;
+            margin: 0 auto;
+        }
+
+        /*  each of right group */
+        .right_locate {
+            text-align: center;
+            width: 43%;
+            margin: 1% auto;
+            padding: 1%;
+            float: right;
+            background-color: green;
+        }
+
+        /* next button area */
+        #next_area {
+            text-align: right;
+        }
+
+        /* next button size */
+        #next {
+            font-size: 2vmin;
+            width: 20%;
+            padding: 2%;
+            margin-bottom: 4%;
+            display: inline-block;
+            background: cornflowerblue;
+        }
+
+        #next_area > p {
+            display: inline-block;
+        }
+
+    </style>
+</head>
+<body>
+<div id="wrap">
+    <div id="earth_area">
+        <h3 th:text="플라스틱 절약 성적 산출기가 ${name} + '님의 성적을 산출하고 있습니다.'">플라스틱 사용량 산출중</h3>
+        <img src="../../static/images/p4_earth.gif" id="earth">
+        <p>당신이 사용하는 쓰레기의 양을 계산 중입니다.</p>
+    </div>
+
+</div>
+</body>
+</html>

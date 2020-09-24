@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Waiting</title>
+    <style>
+        /* local url : ../../static 추가 */
+        body {
+            width: 70%;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        /* main content */
+        #wrap {
+            width: 70%;
+            margin: 0 auto;
+            padding: 0;
+            text-align: center;
+        }
+
+        #earth_area {
+            width: 100%;
+            margin: 0 auto;
+            padding: 0;
+            text-align: center;
+        }
+
+        #earth_area > h3 {
+            font-size: 2vmin;
+            text-align: center;
+            width: 70%;
+            margin: 0 auto;
+            padding: 0;
+            background-color: yellow;
+        }
+
+        #earth_area > p {
+            font-size: 2vmin;
+            text-align: center;
+            width: 70%;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        #earth {
+            width: 30%;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        #background_area {
+            position: relative;
+        }
+
+        #garbage_area {
+            width: 70%;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        .gif_image {
+            width: 100%;
+        }
+
+
+        /*  each of right group */
+        .right_locate {
+            text-align: center;
+            width: 43%;
+            margin: 1% auto;
+            padding: 1%;
+            float: right;
+        }
+
+        /* next button area */
+        #next_area {
+            text-align: right;
+        }
+
+        /* next button size */
+        #next {
+            font-size: 2vmin;
+            width: 20%;
+            padding: 2%;
+            margin-bottom: 4%;
+            display: inline-block;
+            background: cornflowerblue;
+        }
+
+        #next_area > p {
+            display: inline-block;
+        }
+
+    </style>
+</head>
+<body>
+<div id="wrap">
+    <div id="earth_area">
+        <h3 th:text="'[플라스틱 절약 성적 산출기] ' + ${name} + '님의 성적 산출중'">플라스틱 사용량 산출중</h3>
+        <img src="/images/p4_earth.gif" id="earth">
+        <b><p th:text="${name} + '님이 사용한 쓰레기 양을 계산 중입니다..'">쓰레기 양 계산 중..</p></b>
+
+
+    </div>
+
+    <div id="background_area">
+        <div id="garbage_area">
+            <img src="/images/p4_garbage_area.gif" id="garbagedump" class="gif_image">
+        </div>
+    </div>
+
+    <form action="/result1" method="post">
+        <div id="next_area" class="right_locate">
+            <p th:text="${page} + ' / 10 &nbsp'">n / 10</p>
+            <input type="submit" id="next" value="Next">
+        </div>
+    </form>
+</div>
+</body>
+</html>
