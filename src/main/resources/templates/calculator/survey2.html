@@ -3,25 +3,221 @@
 <head>
     <meta charset="UTF-8">
     <title>Survey2</title>
-    <style>
-        body {
-            background-image: url(/images/jiheon.jpg);
-            background-repeat: no-repeat;
-            background-size: 50%;
+    <script language="JavaScript">
+        function setValue(input) {
+            document.getElementById(input.name + "Prt").value = input.value; // input 태그의 value값을 넣기
         }
+    </script>
+    <style>
+        header {
+            font-size: 4vmin;
+            text-align: center;
+            width: 70%;
+            margin: 0 0 5% 15%;
+        }
+
+        body {
+            width: 70%;
+            margin: 0 auto;
+        }
+
+        /* main content */
+        #wrap {
+            width: 70%;
+            margin: auto;
+        }
+
+        /*  each of left group */
+        .left_locate {
+            text-align: center;
+            width: 48%;
+            margin: 0 auto;
+            padding: 0;
+            float: left;
+        }
+
+        /*  each of right group */
+        .right_locate {
+            text-align: center;
+            width: 48%;
+            margin: 0 auto;
+            padding: 0;
+            float: right;
+        }
+
+        /*  image division */
+        .img_div {
+            display: inline-block;
+            width: 25%;
+            margin: 0 auto;
+            padding: 1%;
+            float: left;
+        }
+
+        /*  image */
+        .img {
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        /* image name */
+        .kinds {
+            position: center;
+            margin: 0 auto;
+            font-size: 2.5vmin;
+        }
+
+        /*  button & p tag division */
+        .slide_button_area {
+            display: inline-block;
+            width: 71%;
+            margin: 0 auto;
+            padding: 1%;
+            float: right;
+        }
+
+        /* p tag */
+        .text {
+            position: center;
+            font-size: 2.5vmin;
+        }
+
+        /* result of choose button */
+        .result_area {
+            display: inline-block;
+            font-size: 2.5vmin;
+            width: 10%;
+            border: black solid thin;
+        }
+
+        /* slide button size */
+        .slide_button {
+            margin: 10% 0 0 0;
+            width: 70%;
+        }
+
+        /* next button area */
+        #next_area {
+            text-align: right;
+        }
+
+        /* next button size */
+        #next {
+            font-size: 2vmin;
+            width: 20%;
+            padding: 2%;
+            margin-bottom: 4%;
+            display: inline-block;
+            background: cornflowerblue;
+        }
+
+        #next_area > p {
+            display: inline-block;
+        }
+
     </style>
 </head>
 <body>
-<p th:text="${name} + '님은 두 번째 조사장에 진입했습니다.'"></p>
-<h1>두 번째 페이지다!</h1>
-<p th:text="'첫 번째 : ' + ${pet1}"></p>
-<p th:text="'두 번째 : ' + ${pet2}"></p>
-<p th:text="'세 번째 : ' + ${contain}"></p>
-<p th:text="'네 번째 : ' + ${eggPlt}"></p>
-<p th:text="'다섯번째 : ' + ${glove}"></p>
-<p th:text="'여섯번째 : ' + ${clean1}"></p>
-<form action="/waiting" method="post">
-    <input type="submit" id="next" value="Next">
-</form>
+<header>
+    <p th:text="${name} + '님의 플라스틱 사용량을 입력하세요.'">플라스틱 사용량 입력</p>
+</header>
+<div id="wrap">
+    <form action="/survey3" method="post">
+        <div class="left_locate">
+            <div class="img_div">
+                <img src="/images/jiheon2.jpg" class="img">
+                <p class="kinds">지헌이</p>
+            </div>
+            <div class="slide_button_area">
+                <p class="text">0 <input type="range" id="shampoo" class="slide_button" name="shampoo" min='0' max='30'
+                                         value='0'
+                                         step='1' onchange="setValue(this)"/> 30</p>
+                <p class="text">1주에 <input type="text" id="shampooPrt" class="result_area" name="shampooPrt" placeholder="0"
+                                           readonly>개 사용합니다.</p>
+
+            </div>
+        </div>
+
+        <div class="right_locate">
+            <div class="img_div">
+                <img src="/images/jiheon2.jpg" class="img">
+                <p class="kinds">지헌이</p>
+            </div>
+            <div class="slide_button_area">
+                <p class="text">0 <input type="range" id="toothBrush" class="slide_button" name="toothBrush" min='0' max='30'
+                                         value='0'
+                                         step='1' onchange="setValue(this)"/> 30</p>
+                <p class="text">1주에 <input type="text" id="toothBrushPrt" class="result_area" name="toothBrushPrt" placeholder="0"
+                                           readonly>개 사용합니다.</p>
+            </div>
+        </div>
+
+        <div class="left_locate">
+            <div class="img_div">
+                <img src="/images/jiheon2.jpg" class="img">
+                <p class="kinds">지헌이</p>
+            </div>
+            <div class="slide_button_area">
+                <p class="text">0 <input type="range" id="toothPaste" class="slide_button" name="toothPaste" min='0' max='30'
+                                         value='0'
+                                         step='1' onchange="setValue(this)"/> 30</p>
+                <p class="text">1주에 <input type="text" id="toothPastePrt" class="result_area" name="toothPastePrt"
+                                           placeholder="0"
+                                           readonly>개 사용합니다.</p>
+
+            </div>
+        </div>
+
+        <div class="right_locate">
+            <div class="img_div">
+                <img src="/images/jiheon2.jpg" class="img">
+                <p class="kinds">지헌이</p>
+            </div>
+            <div class="slide_button_area">
+                <p class="text">0 <input type="range" id="clean2" class="slide_button" name="clean2" min='0' max='30'
+                                         value='0'
+                                         step='1' onchange="setValue(this)"/> 30</p>
+                <p class="text">1주에 <input type="text" id="clean2Prt" class="result_area" name="clean2Prt"
+                                           placeholder="0"
+                                           readonly>개 사용합니다.</p>
+            </div>
+        </div>
+
+        <div class="left_locate">
+            <div class="img_div">
+                <img src="/images/jiheon2.jpg" class="img">
+                <p class="kinds">지헌이</p>
+            </div>
+            <div class="slide_button_area">
+                <p class="text">0 <input type="range" id="cosmetic" class="slide_button" name="cosmetic" min='0' max='30'
+                                         value='0'
+                                         step='1' onchange="setValue(this)"/> 30</p>
+                <p class="text">1주에 <input type="text" id="cosmeticPrt" class="result_area" name="cosmeticPrt" placeholder="0"
+                                           readonly>개 사용합니다.</p>
+
+            </div>
+        </div>
+
+        <div class="right_locate">
+            <div class="img_div">
+                <img src="/images/jiheon2.jpg" class="img">
+                <p class="kinds">지헌이</p>
+            </div>
+            <div class="slide_button_area">
+                <p class="text">0 <input type="range" id="deliveFood" class="slide_button" name="deliveFood" min='0' max='30'
+                                         value='0'
+                                         step='1' onchange="setValue(this)"/> 30</p>
+                <p class="text">1주에 <input type="text" id="deliveFoodPrt" class="result_area" name="deliveFoodPrt"
+                                           placeholder="0"
+                                           readonly>개 사용합니다.</p>
+            </div>
+        </div>
+
+        <div id="next_area" class="right_locate">
+            <b><p th:text="${page} + ' / 10 &nbsp'" >n / 10</p></b>
+            <input type="submit" id="next" value="Next">
+        </div>
+    </form>
+</div>
 </body>
 </html>

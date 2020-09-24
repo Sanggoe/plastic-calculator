@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Survey1</title>
+    <title>Survey2</title>
     <script language="JavaScript">
         function setValue(input) {
             document.getElementById(input.name + "Prt").value = input.value; // input 태그의 value값을 넣기
@@ -122,17 +122,17 @@
     <p th:text="${name} + '님의 플라스틱 사용량을 입력하세요.'">플라스틱 사용량 입력</p>
 </header>
 <div id="wrap">
-    <form action="/survey2" method="post">
+    <form action="/waiting" method="post">
         <div class="left_locate">
             <div class="img_div">
-                <img src="/images/boyeong.gif" class="img">
-                <p class="kinds">보영누나</p>
+                <img src="/images/jiheon3.jpg" class="img">
+                <p class="kinds">지헌이</p>
             </div>
             <div class="slide_button_area">
-                <p class="text">0 <input type="range" id="pet1" class="slide_button" name="pet1" min='0' max='30'
+                <p class="text">0 <input type="range" id="spoon" class="slide_button" name="spoon" min='0' max='30'
                                          value='0'
                                          step='1' onchange="setValue(this)"/> 30</p>
-                <p class="text">1주에 <input type="text" id="pet1Prt" class="result_area" name="pet1Prt" placeholder="0"
+                <p class="text">1주에 <input type="text" id="spoonPrt" class="result_area" name="spoonPrt" placeholder="0"
                                            readonly>개 사용합니다.</p>
 
             </div>
@@ -140,28 +140,28 @@
 
         <div class="right_locate">
             <div class="img_div">
-                <img src="/images/boyeong.gif" class="img">
-                <p class="kinds">보영누나</p>
+                <img src="/images/jiheon3.jpg" class="img">
+                <p class="kinds">지헌이</p>
             </div>
             <div class="slide_button_area">
-                <p class="text">0 <input type="range" id="pet2" class="slide_button" name="pet2" min='0' max='30'
+                <p class="text">0 <input type="range" id="straw" class="slide_button" name="straw" min='0' max='30'
                                          value='0'
                                          step='1' onchange="setValue(this)"/> 30</p>
-                <p class="text">1주에 <input type="text" id="pet2Prt" class="result_area" name="pet2Prt" placeholder="0"
+                <p class="text">1주에 <input type="text" id="strawPrt" class="result_area" name="strawPrt" placeholder="0"
                                            readonly>개 사용합니다.</p>
             </div>
         </div>
 
         <div class="left_locate">
             <div class="img_div">
-                <img src="/images/boyeong.gif" class="img">
-                <p class="kinds">보영누나</p>
+                <img src="/images/jiheon3.jpg" class="img">
+                <p class="kinds">지헌이</p>
             </div>
             <div class="slide_button_area">
-                <p class="text">0 <input type="range" id="contain" class="slide_button" name="contain" min='0' max='30'
+                <p class="text">0 <input type="range" id="cup" class="slide_button" name="cup" min='0' max='30'
                                          value='0'
                                          step='1' onchange="setValue(this)"/> 30</p>
-                <p class="text">1주에 <input type="text" id="containPrt" class="result_area" name="containPrt"
+                <p class="text">1주에 <input type="text" id="cupPrt" class="result_area" name="cupPrt"
                                            placeholder="0"
                                            readonly>개 사용합니다.</p>
 
@@ -170,14 +170,14 @@
 
         <div class="right_locate">
             <div class="img_div">
-                <img src="/images/boyeong.gif" class="img">
-                <p class="kinds">보영누나</p>
+                <img src="/images/jiheon3.jpg" class="img">
+                <p class="kinds">지헌이</p>
             </div>
             <div class="slide_button_area">
-                <p class="text">0 <input type="range" id="eggPlt" class="slide_button" name="eggPlt" min='0' max='30'
+                <p class="text">0 <input type="range" id="bagBig" class="slide_button" name="bagBig" min='0' max='30'
                                          value='0'
                                          step='1' onchange="setValue(this)"/> 30</p>
-                <p class="text">1주에 <input type="text" id="eggPltPrt" class="result_area" name="eggPltPrt"
+                <p class="text">1주에 <input type="text" id="bagBigPrt" class="result_area" name="bagBigPrt"
                                            placeholder="0"
                                            readonly>개 사용합니다.</p>
             </div>
@@ -185,14 +185,14 @@
 
         <div class="left_locate">
             <div class="img_div">
-                <img src="/images/boyeong.gif" class="img">
-                <p class="kinds">보영누나</p>
+                <img src="/images/jiheon3.jpg" class="img">
+                <p class="kinds">지헌이</p>
             </div>
             <div class="slide_button_area">
-                <p class="text">0 <input type="range" id="glove" class="slide_button" name="glove" min='0' max='30'
+                <p class="text">0 <input type="range" id="bagMiddle" class="slide_button" name="bagMiddle" min='0' max='30'
                                          value='0'
                                          step='1' onchange="setValue(this)"/> 30</p>
-                <p class="text">1주에 <input type="text" id="glovePrt" class="result_area" name="glovePrt" placeholder="0"
+                <p class="text">1주에 <input type="text" id="bagMiddlePrt" class="result_area" name="bagMiddlePrt" placeholder="0"
                                            readonly>개 사용합니다.</p>
 
             </div>
@@ -200,14 +200,14 @@
 
         <div class="right_locate">
             <div class="img_div">
-                <img src="/images/boyeong.gif" class="img">
-                <p class="kinds">보영누나</p>
+                <img src="/images/jiheon3.jpg" class="img">
+                <p class="kinds">지헌이</p>
             </div>
             <div class="slide_button_area">
-                <p class="text">0 <input type="range" id="clean1" class="slide_button" name="clean1" min='0' max='30'
+                <p class="text">0 <input type="range" id="bagSmall" class="slide_button" name="bagSmall" min='0' max='30'
                                          value='0'
                                          step='1' onchange="setValue(this)"/> 30</p>
-                <p class="text">1주에 <input type="text" id="clean1Prt" class="result_area" name="clean1Prt"
+                <p class="text">1주에 <input type="text" id="bagSmallPrt" class="result_area" name="bagSmallPrt"
                                            placeholder="0"
                                            readonly>개 사용합니다.</p>
             </div>
