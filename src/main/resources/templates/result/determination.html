@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>다짐서</title>
     <style>
+
         body {
             margin: 0 auto;
             width: 70%;
@@ -13,7 +14,7 @@
             font-size: 3vmin;
             text-align: center;
             width: 100%;
-            margin: 0 0 5% 0 ;
+            margin: 0 auto;
             padding: 0;
         }
 
@@ -25,11 +26,61 @@
         }
 
         #content {
+            width: 100%;
+            border: gray solid 2px;
             margin: 0 auto;
-            width: 70%;
-
+            text-align: center;
         }
 
+        /* info contents area */
+        #determination_title {
+            font-size: 3vmin;
+            margin: 7% auto;
+            width: 90%;
+        }
+
+        #sign {
+            font-size: 3vmin;
+        }
+
+        #decide {
+            font-size: 2.5vmin;
+        }
+
+        #environment {
+            width: 30%;
+            margin: 0 auto;
+        }
+
+        #environment > img {
+            width: 100%;
+        }
+
+        #date {
+            font-size: 2.5vmin;
+        }
+
+        #associate {
+            font-size: 3vmin
+        }
+
+        #comment {
+            font-size: 2vmin;
+        }
+
+        #comment > p {
+            margin: 2px auto;
+            text-align: left;
+        }
+
+        .button {
+            font-size: 2.5vmin;
+            font-weight: bold;
+            margin: 5%;
+            color: cornflowerblue;
+            border: none;
+            background-color: white;
+        }
 
         /*  each of right group */
         .right_locate {
@@ -61,16 +112,50 @@
     </style>
 </head>
 <body>
-<header>
-    <p th:text="${name} + '님, 플라스틱 다이어트 함께 실천해봐요!'">플라스틱 사용량 입력<br/>두 줄로 나올겨</p>
-</header>
+<div id="header">
+    <p th:text="${name} + '님, 플라스틱 다이어트 함께 실천해봐요!'">플라스틱 다이어트 함께 실천해봐요!</p>
+</div>
+<div id="wrap">
+    <div id="content">
+        <div id="determination_title">
+            <h1>플라스틱 다이어트 다짐서</h1>
+        </div>
+        <div id="sign">
+            <h3 th:text="'서명 : ' + ${name}">서명 : 김연코</h3>
+            <br/>
+        </div>
 
+        <div id="decide">
+            <h3><span style="color: #DD1919">일회용 빨대</span>를 <span style="color: #ABCB4C">실리콘 빨대</span>와
+                <span style="color: #ABCB4C">빨대 쓰지 않기</span>로 대체하겠습니다.</h3>
+            <h3><span style="color: #DD1919">비닐봉투</span>를 <span style="color: #ABCB4C">리유즈백</span>으로 대체하겠습니다.</h3>
+        </div>
 
-<div id="next_area" class="right_locate">
-    <form action="/" method="get">
-        <p><b>9 / 9 &nbsp</b></p>
-        <input type="submit" id="next" value="Home">
-    </form>
+        <div id="environment">
+            <img src="/images/p9_environment.png">
+        </div>
+        <div id="date">
+            <h3 th:text="'오늘 날짜'">2020년 9월 27일</h3>
+        </div>
+
+        <div id="associate">
+            <h2>플라스틱 다이어트 학교</h2>
+        </div>
+    </div>
+    <div id="comment">
+        <p><b>성적표와 다짐서를 다운로드, 공유하여 굳게 다짐하고 실천해보세요.</b></p>
+        <p><b>한달 후에는 A+ 성적표를 받을지도 몰라요. 더 나은 미래로 함께 나아갈 수 있습니다.</b></p>
+    </div>
+    <div id="button_area">
+        <input type="button" id="download" class="button" name="download" value="다운로드">
+        <input type="button" id="share" class="button" name="share" value="공유하기">
+    </div>
+    <div id="next_area" class="right_locate">
+        <form action="/" method="get">
+            <p><b>9 / 9 &nbsp</b></p>
+            <input type="submit" id="next" value="Home">
+        </form>
+    </div>
 </div>
 </body>
 </html>

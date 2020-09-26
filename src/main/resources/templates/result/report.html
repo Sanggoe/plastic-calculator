@@ -77,18 +77,6 @@
             margin: 5% auto;
         }
 
-        /*   #table_left {
-               margin: 0 51% 0 0;
-               width: 49%;
-               float: left;
-           }
-
-           #table_right {
-               margin: 0 0 0 51%;
-               width: 49%;
-               float: left;
-           }*/
-
         table {
             width: 100%;
             margin: 0 auto;
@@ -120,6 +108,9 @@
             padding: 1%;
         }
 
+        #associate {
+            font-size: 2.3vmin;
+        }
 
         /*  each of right group */
         .right_locate {
@@ -167,130 +158,128 @@
 
         <div id="score_subtitle">
             <h3 th:text="'이름: ' + ${name}" id="left_h3">이름: 김연코</h3>
-            <h3 id="right_h3">2020년 9월 26일</h3>
+            <h3 th:text="'오늘 날짜'" id="right_h3">2020년 9월 27일</h3>
             <br/>
         </div>
     </div>
 
     <div id="score_area">
-        <div id="table_left">
-            <table>
-                <thead>
-                <tr>
-                    <th></th>
-                    <th>한달</th>
-                    <th>1년</th>
-                    <th>20년</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td class="table_kinds">플라스틱</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td class="table_kinds">플라스틱</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td class="table_kinds">플라스틱</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td class="table_kinds">플라스틱</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td class="table_kinds">플라스틱</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td class="table_kinds">플라스틱</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td class="table_kinds">플라스틱</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td class="table_kinds">플라스틱</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td class="table_kinds">플라스틱</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td class="table_kinds">플라스틱</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td class="table_kinds">플라스틱</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td class="table_kinds">플라스틱</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td class="table_kinds">플라스틱</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td class="table_kinds">플라스틱</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td class="table_kinds">플라스틱</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td class="table_kinds">플라스틱</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <th>총계</th>
-                    <th>18</th>
-                    <th>36</th>
-                    <th>48개</th>
-                </tr>
-                </tbody>
-            </table>
-        </div>
+        <table>
+            <thead>
+            <tr>
+                <th></th>
+                <th>한달</th>
+                <th>1년</th>
+                <th>20년</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td class="table_kinds">플라스틱</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td class="table_kinds">플라스틱</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td class="table_kinds">플라스틱</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td class="table_kinds">플라스틱</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td class="table_kinds">플라스틱</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td class="table_kinds">플라스틱</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td class="table_kinds">플라스틱</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td class="table_kinds">플라스틱</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td class="table_kinds">플라스틱</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td class="table_kinds">플라스틱</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td class="table_kinds">플라스틱</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td class="table_kinds">플라스틱</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td class="table_kinds">플라스틱</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td class="table_kinds">플라스틱</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td class="table_kinds">플라스틱</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td class="table_kinds">플라스틱</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <th>총계</th>
+                <th>18</th>
+                <th>36</th>
+                <th>48개</th>
+            </tr>
+            </tbody>
+        </table>
 
-        <div>
+        <div id="associate">
             <h1>플라스틱 다이어트 학교</h1>
         </div>
     </div>
