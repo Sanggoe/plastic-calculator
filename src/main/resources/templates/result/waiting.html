@@ -102,17 +102,44 @@
         <b><p th:text="${name} + '님이 사용한 쓰레기 양을 계산 중입니다..'">쓰레기 양 계산 중..</p></b>
 
 
+
     </div>
 
     <div id="background_area">
         <div id="garbage_area">
-            <img src="/images/p4_garbage_area.gif" id="garbagedump" class="gif_image">
+            <img src="/images/p4_garbage_area.gif" class="gif_image">
         </div>
     </div>
 
     <form action="/result1" method="post">
+
+        <!-- hidden data -->
+        <input type="hidden" name="name" th:value="${name}">
+
+        <input type="hidden" name="pet1" th:value="${pet1}">
+        <input type="hidden" name="pet2" th:value="${pet2}">
+        <input type="hidden" name="contain" th:value="${contain}">
+        <input type="hidden" name="eggPlt" th:value="${eggPlt}">
+        <input type="hidden" name="glove" th:value="${glove}">
+        <input type="hidden" name="clean1" th:value="${clean1}">
+
+        <input type="hidden" name="shampoo" th:value="${shampoo}">
+        <input type="hidden" name="toothBrush" th:value="${toothBrush}">
+        <input type="hidden" name="toothPaste" th:value="${toothPaste}">
+        <input type="hidden" name="clean2" th:value="${clean2}">
+        <input type="hidden" name="cosmetic" th:value="${cosmetic}">
+        <input type="hidden" name="deliveFood" th:value="${deliveFood}">
+
+        <input type="hidden" name="spoon" th:value="${spoon}">
+        <input type="hidden" name="straw" th:value="${straw}">
+        <input type="hidden" name="cup" th:value="${cup}">
+        <input type="hidden" name="bagBig" th:value="${bagBig}">
+        <input type="hidden" name="bagMiddle" th:value="${bagMiddle}">
+        <input type="hidden" name="bagSmall" th:value="${bagSmall}">
+        <!-- ----------- -->
+
         <div id="next_area" class="right_locate">
-            <b><p th:text="${page} + ' / 10 &nbsp'">n / 10</p></b>
+            <p><b>4 / 10 &nbsp</b></p>
             <input type="submit" id="next" value="Next">
         </div>
     </form>

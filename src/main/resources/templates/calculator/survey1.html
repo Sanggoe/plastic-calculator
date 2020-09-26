@@ -123,6 +123,11 @@
 </header>
 <div id="wrap">
     <form action="/survey2" method="post">
+
+        <!-- hidden data -->
+        <input type="hidden" name="name" th:value="${name}">
+        <!-- ----------- -->
+
         <div class="left_locate">
             <div class="img_div">
                 <img src="/images/boyeong.gif" class="img">
@@ -214,9 +219,10 @@
         </div>
 
         <div id="next_area" class="right_locate">
-            <b><p th:text="${page} + ' / 10 &nbsp'" >n / 10</p></b>
+            <p><b>1 / 10 &nbsp</b></p>
             <input type="submit" id="next" value="Next">
         </div>
+
     </form>
 </div>
 </body>
