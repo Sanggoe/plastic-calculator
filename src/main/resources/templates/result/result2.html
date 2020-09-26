@@ -5,25 +5,33 @@
     <title>결과</title>
     <style>
 
-        header {
-            font-size: 3vmin;
-            text-align: center;
+        body {
+            margin: 0 auto;
             width: 70%;
-            margin: 0 0 5% 15%;
         }
 
-        body {
-            width: 70%;
-            margin: 0 auto;
+        #header {
+            font-size: 3vmin;
+            text-align: center;
+            width: 100%;
+            margin: 0 0 5% 0 ;
+            padding: 0;
         }
 
         /* main content */
         #wrap {
             width: 70%;
-            background-image: url(/images/p5_result1_temp.png);
-            background-repeat: no-repeat;
-            background-size: 100%;
             margin: auto;
+            text-align: center;
+        }
+
+        #content {
+            margin: 0 auto;
+            width: 70%;
+        }
+
+        .img {
+            width: 100%;
         }
 
         /*  each of right group */
@@ -53,27 +61,19 @@
         #next_area > p {
             display: inline-block;
         }
-
     </style>
 </head>
 <body>
-<header>
-    <p th:text="'플라스틱 절약 성적 산출기가 ' + ${name} + '님의 성적을 계산하고 있습니다.'"></p>
-</header>
+<div id="header">
+    <p th:text="'지각 없이 소비한 플라스틱 쓰레기는 결국 ' + ${name} + '님께 돌아왔습니다.'">지각 없이 소비한 플라스틱 쓰레기는 결국 당신에게 돌아왔습니다.</p>
+</div>
 <div id="wrap">
-    <div id="button_area">
-        <p>첫 번째 결과창. 버튼 세 개 누를때마다 다른 페이지 출력하는 것 구현 필요! </p>
-        <input type="button" name="perMonth" value="한 달 동안">
-        <input type="button" name="perYear" value="1년 동안">
-        <input type="button" name="per20Year" value="20년 동안">
-    </div>
-
-    <div id="oneMonthPage">
-
+    <div id="content">
+        <img src="/images/p6_plastic_adventure.png" class="img">
     </div>
 
     <div id="next_area" class="right_locate">
-        <form action="/result2" method="post">
+        <form action="/result3" method="post">
 
             <!-- hidden data -->
             <input type="hidden" name="name" th:value="${name}">
@@ -100,7 +100,7 @@
             <input type="hidden" name="bagSmall" th:value="${bagSmall}">
             <!-- ----------- -->
 
-            <p><b>5 / 9 &nbsp</b>
+            <p><b>6 / 9 &nbsp</b>
             <input type="submit" id="next" value="Next"></p>
         </form>
     </div>

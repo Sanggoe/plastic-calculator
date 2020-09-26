@@ -264,11 +264,12 @@ An error happened during template parsing
 #### 서버 관련 !500 error 메시지
 
 * 방금 발생한 에러는 !500 error로, 예외적이거나 예측하지 못한 경우 출력된다.
-* 발생한 원인으로는
+* 발생한 원인으로는 대표적으로 다음 세 가지가 있다고 한다.
   * Request Time out
   * Traffic 과부하
   * Syntax Error
-* 등이 있다고 한다. 이 중 내 경우, 세 번째. 가장 단순한 Syntax Error였다. 그 외에도 300, 400 등 자주 발생하는 에러 메시지의 종류에는 여러 가지가 있으니 참고하자.
+* 이 중 내 경우에는 세 번째. 가장 단순한 Syntax Error가 자주 있었다. 문장 끝에 +를 하나 더 쓰고 그 뒤에 값을 안 줬다던지, 문자열을 따옴표 '로 열고 안 닫아줬다던지..
+* 그 외에도 300, 400 등 자주 발생하는 에러 메시지의 종류에는 여러 가지가 있으니 참고하자.
 
 [참고](https://webisfree.com/2017-04-27/internal-server-error-%EC%84%9C%EB%B2%84-500-%EC%97%90%EB%9F%AC%EB%8A%94-%EC%96%B4%EB%96%A4-%EA%B2%BD%EC%9A%B0%EC%97%90-%EB%B0%9C%EC%83%9D%ED%95%98%EB%82%98%EC%9A%94)
 

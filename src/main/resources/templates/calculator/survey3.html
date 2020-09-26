@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Survey2</title>
+    <title>설문</title>
     <script language="JavaScript">
         function setValue(input) {
             document.getElementById(input.name + "Prt").value = input.value; // input 태그의 value값을 넣기
@@ -120,7 +120,6 @@
 <body>
 <header>
     <p th:text="${name} + '님의 플라스틱 사용량을 입력하세요.'">플라스틱 사용량 입력</p>
-
 </header>
 <div id="wrap">
     <form action="/waiting" method="post">
@@ -145,8 +144,8 @@
 
         <div class="left_locate">
             <div class="img_div">
-                <img src="/images/jiheon3.jpg" class="img">
-                <p class="kinds">지헌이</p>
+                <img src="/images/juyeon.png" class="img">
+                <p class="kinds">소주연님</p>
             </div>
             <div class="slide_button_area">
                 <p class="text">0 <input type="range" id="spoon" class="slide_button" name="spoon" min='0' max='30'
@@ -159,8 +158,8 @@
 
         <div class="right_locate">
             <div class="img_div">
-                <img src="/images/jiheon3.jpg" class="img">
-                <p class="kinds">지헌이</p>
+                <img src="/images/juyeon.png" class="img">
+                <p class="kinds">소주연님</p>
             </div>
             <div class="slide_button_area">
                 <p class="text">0 <input type="range" id="straw" class="slide_button" name="straw" min='0' max='30'
@@ -173,8 +172,8 @@
 
         <div class="left_locate">
             <div class="img_div">
-                <img src="/images/jiheon3.jpg" class="img">
-                <p class="kinds">지헌이</p>
+                <img src="/images/juyeon.png" class="img">
+                <p class="kinds">소주연님</p>
             </div>
             <div class="slide_button_area">
                 <p class="text">0 <input type="range" id="cup" class="slide_button" name="cup" min='0' max='30'
@@ -189,8 +188,8 @@
 
         <div class="right_locate">
             <div class="img_div">
-                <img src="/images/jiheon3.jpg" class="img">
-                <p class="kinds">지헌이</p>
+                <img src="/images/juyeon.png" class="img">
+                <p class="kinds">소주연님</p>
             </div>
             <div class="slide_button_area">
                 <p class="text">0 <input type="range" id="bagBig" class="slide_button" name="bagBig" min='0' max='30'
@@ -204,8 +203,8 @@
 
         <div class="left_locate">
             <div class="img_div">
-                <img src="/images/jiheon3.jpg" class="img">
-                <p class="kinds">지헌이</p>
+                <img src="/images/juyeon.png" class="img">
+                <p class="kinds">소주연님</p>
             </div>
             <div class="slide_button_area">
                 <p class="text">0 <input type="range" id="bagMiddle" class="slide_button" name="bagMiddle" min='0' max='30'
@@ -219,8 +218,8 @@
 
         <div class="right_locate">
             <div class="img_div">
-                <img src="/images/jiheon3.jpg" class="img">
-                <p class="kinds">지헌이</p>
+                <img src="/images/juyeon.png" class="img">
+                <p class="kinds">소주연님</p>
             </div>
             <div class="slide_button_area">
                 <p class="text">0 <input type="range" id="bagSmall" class="slide_button" name="bagSmall" min='0' max='30'
@@ -233,7 +232,7 @@
         </div>
 
         <div id="next_area" class="right_locate">
-            <p><b>3 / 10 &nbsp</b></p>
+            <p><b>3 / 9 &nbsp</b></p>
             <input type="submit" id="next" value="Next">
         </div>
     </form>
