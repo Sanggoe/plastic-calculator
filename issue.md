@@ -276,7 +276,7 @@ An error happened during template parsing
 
 #### fifth issue
 
-![image-20200926181736925](C:\Users\smpsm\AppData\Roaming\Typora\typora-user-images\image-20200926181736925.png)
+![image-20200926181736925](./images/image-20200926181736925.png)
 
 * 이전 !500 에러를 해결하자마자 바로 400 에러가 이어졌다. 하지만 다행히 이전에 에러가 Syntax에러였어서 이번에도 역시 손쉽게 찾아낼 수 있었다.
 * 우선 400 에러의 경우, 클라이언트의 요청이 유효하지 않아 더 이상 작업을 진행하지 않는 경우에 발생한다고 한다. 보통은 좀.. 고객 위주가 아니라 서버 위주의 에러 발생 응답이 많다고 한다.
@@ -291,9 +291,9 @@ Required int parameter 'shampoo' is not present
 
 <br/>
 
-![image-20200926181939044](C:\Users\smpsm\AppData\Roaming\Typora\typora-user-images\image-20200926181939044.png)
+![image-20200926181939044](./images/image-20200926181939044.png)
 
-![image-20200926181924614](C:\Users\smpsm\AppData\Roaming\Typora\typora-user-images\image-20200926181924614.png)
+![image-20200926181924614](images/image-20200926181924614.png)
 
 * 맘에 안드는 Controller에는 문제 없고, 이 역시 출력 부분에서 실수했다. 복붙의 연속이다 보니.. key - value 의 매핑이 잘못되어 있었다. value 부분의 값만 수정하고 그에 매핑되는 key값을 수정해주지 않은 것이다. such an idiot.. 해결 했으니 되었다.
 
