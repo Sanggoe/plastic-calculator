@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class CalculatorController {
 
     CalculateService calculateService;
-    UserInformation info = new UserInformation();
 
     @Autowired
     public CalculatorController(CalculateService calculateService) {
@@ -56,8 +55,8 @@ public class CalculatorController {
                                  @RequestParam("eggPlt") int eggPlt,
                                  @RequestParam("glove") int glove,
                                  @RequestParam("clean1") int clean1, // before data
-                                 @RequestParam("toothBrush") int toothBrush,
                                  @RequestParam("toothPaste") int toothPaste,
+                                 @RequestParam("toothBrush") int toothBrush,
                                  @RequestParam("shampoo") int shampoo,
                                  @RequestParam("clean2") int clean2,
                                  @RequestParam("cosmetic") int cosmetic,
@@ -72,8 +71,8 @@ public class CalculatorController {
         model.addAttribute("glove", glove);
         model.addAttribute("clean1", clean1);
 
-        model.addAttribute("toothBrush", toothBrush);
         model.addAttribute("toothPaste", toothPaste);
+        model.addAttribute("toothBrush", toothBrush);
         model.addAttribute("shampoo", shampoo);
         model.addAttribute("clean2", clean2);
         model.addAttribute("cosmetic", cosmetic);
@@ -90,8 +89,8 @@ public class CalculatorController {
                               @RequestParam("eggPlt") int eggPlt,
                               @RequestParam("glove") int glove,
                               @RequestParam("clean1") int clean1,
-                              @RequestParam("toothBrush") int toothBrush,
                               @RequestParam("toothPaste") int toothPaste,
+                              @RequestParam("toothBrush") int toothBrush,
                               @RequestParam("shampoo") int shampoo,
                               @RequestParam("clean2") int clean2,
                               @RequestParam("cosmetic") int cosmetic,
@@ -112,8 +111,8 @@ public class CalculatorController {
         model.addAttribute("glove", glove);
         model.addAttribute("clean1", clean1);
 
-        model.addAttribute("toothBrush", toothBrush);
         model.addAttribute("toothPaste", toothPaste);
+        model.addAttribute("toothBrush", toothBrush);
         model.addAttribute("shampoo", shampoo);
         model.addAttribute("clean2", clean2);
         model.addAttribute("cosmetic", cosmetic);
@@ -137,8 +136,8 @@ public class CalculatorController {
                               @RequestParam("eggPlt") int eggPlt,
                               @RequestParam("glove") int glove,
                               @RequestParam("clean1") int clean1,
-                              @RequestParam("toothBrush") int toothBrush,
                               @RequestParam("toothPaste") int toothPaste,
+                              @RequestParam("toothBrush") int toothBrush,
                               @RequestParam("shampoo") int shampoo,
                               @RequestParam("clean2") int clean2,
                               @RequestParam("cosmetic") int cosmetic,
@@ -159,8 +158,8 @@ public class CalculatorController {
         model.addAttribute("glove", glove);
         model.addAttribute("clean1", clean1);
 
-        model.addAttribute("toothBrush", toothBrush);
         model.addAttribute("toothPaste", toothPaste);
+        model.addAttribute("toothBrush", toothBrush);
         model.addAttribute("shampoo", shampoo);
         model.addAttribute("clean2", clean2);
         model.addAttribute("cosmetic", cosmetic);
@@ -184,8 +183,8 @@ public class CalculatorController {
                               @RequestParam("eggPlt") int eggPlt,
                               @RequestParam("glove") int glove,
                               @RequestParam("clean1") int clean1,
-                              @RequestParam("toothBrush") int toothBrush,
                               @RequestParam("toothPaste") int toothPaste,
+                              @RequestParam("toothBrush") int toothBrush,
                               @RequestParam("shampoo") int shampoo,
                               @RequestParam("clean2") int clean2,
                               @RequestParam("cosmetic") int cosmetic,
@@ -206,8 +205,8 @@ public class CalculatorController {
         model.addAttribute("glove", glove);
         model.addAttribute("clean1", clean1);
 
-        model.addAttribute("toothBrush", toothBrush);
         model.addAttribute("toothPaste", toothPaste);
+        model.addAttribute("toothBrush", toothBrush);
         model.addAttribute("shampoo", shampoo);
         model.addAttribute("clean2", clean2);
         model.addAttribute("cosmetic", cosmetic);
@@ -231,8 +230,8 @@ public class CalculatorController {
                               @RequestParam("eggPlt") int eggPlt,
                               @RequestParam("glove") int glove,
                               @RequestParam("clean1") int clean1,
-                              @RequestParam("toothBrush") int toothBrush,
                               @RequestParam("toothPaste") int toothPaste,
+                              @RequestParam("toothBrush") int toothBrush,
                               @RequestParam("shampoo") int shampoo,
                               @RequestParam("clean2") int clean2,
                               @RequestParam("cosmetic") int cosmetic,
@@ -253,8 +252,8 @@ public class CalculatorController {
         model.addAttribute("glove", glove);
         model.addAttribute("clean1", clean1);
 
-        model.addAttribute("toothBrush", toothBrush);
         model.addAttribute("toothPaste", toothPaste);
+        model.addAttribute("toothBrush", toothBrush);
         model.addAttribute("shampoo", shampoo);
         model.addAttribute("clean2", clean2);
         model.addAttribute("cosmetic", cosmetic);
@@ -278,8 +277,8 @@ public class CalculatorController {
                              @RequestParam("eggPlt") int eggPlt,
                              @RequestParam("glove") int glove,
                              @RequestParam("clean1") int clean1,
-                             @RequestParam("toothBrush") int toothBrush,
                              @RequestParam("toothPaste") int toothPaste,
+                             @RequestParam("toothBrush") int toothBrush,
                              @RequestParam("shampoo") int shampoo,
                              @RequestParam("clean2") int clean2,
                              @RequestParam("cosmetic") int cosmetic,
@@ -326,8 +325,8 @@ public class CalculatorController {
                                     @RequestParam("eggPlt") int eggPlt,
                                     @RequestParam("glove") int glove,
                                     @RequestParam("clean1") int clean1,
-                                    @RequestParam("toothBrush") int toothBrush,
                                     @RequestParam("toothPaste") int toothPaste,
+                                    @RequestParam("toothBrush") int toothBrush,
                                     @RequestParam("shampoo") int shampoo,
                                     @RequestParam("clean2") int clean2,
                                     @RequestParam("cosmetic") int cosmetic,

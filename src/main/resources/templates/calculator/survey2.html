@@ -135,23 +135,6 @@
         <input type="hidden" name="clean1" th:value="${clean1}">
         <!-- ----------- -->
 
-        <div class="left_locate">
-            <div class="img_div">
-                <img src="/images/jiheon2.jpg" class="img">
-                <p class="kinds">치약</p>
-            </div>
-            <div class="slide_button_area">
-                <p class="text">0 <input type="range" id="toothPaste" class="slide_button" name="toothPaste" min='0'
-                                         max='30'
-                                         value='0'
-                                         step='1' onchange="setValue(this)"/> 30</p>
-                <p class="text">1주에 <input type="text" id="toothPastePrt" class="result_area" name="toothPastePrt"
-                                           placeholder="0"
-                                           readonly>개 사용합니다.</p>
-
-            </div>
-        </div>
-
         <div class="right_locate">
             <div class="img_div">
                 <img src="/images/jiheon2.jpg" class="img">
@@ -171,7 +154,23 @@
         <div class="left_locate">
             <div class="img_div">
                 <img src="/images/jiheon2.jpg" class="img">
-                <p class="kinds">샴푸·린스 500ml</p>
+                <p class="kinds">치약</p>
+            </div>
+            <div class="slide_button_area">
+                <p class="text">0 <input type="range" id="toothPaste" class="slide_button" name="toothPaste" min='0'
+                                         max='30'
+                                         value='0'
+                                         step='1' onchange="setValue(this)"/> 30</p>
+                <p class="text">1주에 <input type="text" id="toothPastePrt" class="result_area" name="toothPastePrt"
+                                           placeholder="0"
+                                           readonly>개 사용합니다.</p>
+            </div>
+        </div>
+
+        <div class="left_locate">
+            <div class="img_div">
+                <img src="/images/jiheon2.jpg" class="img">
+                <p class="kinds">샴푸·린스 (500ml)</p>
             </div>
             <div class="slide_button_area">
                 <p class="text">0 <input type="range" id="shampoo" class="slide_button" name="shampoo" min='0' max='30'
@@ -186,7 +185,7 @@
         <div class="right_locate">
             <div class="img_div">
                 <img src="/images/jiheon2.jpg" class="img">
-                <p class="kinds">세안제 150ml</p>
+                <p class="kinds">세안제 (150ml)</p>
             </div>
             <div class="slide_button_area">
                 <p class="text">0 <input type="range" id="clean2" class="slide_button" name="clean2" min='0' max='30'
@@ -201,7 +200,7 @@
         <div class="left_locate">
             <div class="img_div">
                 <img src="/images/jiheon2.jpg" class="img">
-                <p class="kinds">화장품 150ml</p>
+                <p class="kinds">화장품 (150ml)</p>
             </div>
             <div class="slide_button_area">
                 <p class="text">0 <input type="range" id="cosmetic" class="slide_button" name="cosmetic" min='0'
@@ -211,7 +210,6 @@
                 <p class="text">1주에 <input type="text" id="cosmeticPrt" class="result_area" name="cosmeticPrt"
                                            placeholder="0"
                                            readonly>개 사용합니다.</p>
-
             </div>
         </div>
 
