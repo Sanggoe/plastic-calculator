@@ -9,15 +9,26 @@
         }
     </script>
     <style>
+
+        @font-face {
+            font-family: notosans;
+            src: url("/font/NotoSansCJKkr-Regular.otf") format("opentype");
+        }
+
+        * {
+            font-family: notosans;
+        }
+
         header {
-            font-size: 4vmin;
+            font-size: 3vmin;
+            font-weight: bold;
             text-align: center;
             width: 70%;
-            margin: 0 0 5% 15%;
+            margin: 4% 0 4% 15%;
         }
 
         body {
-            width: 70%;
+            width: 80%;
             margin: 0 auto;
         }
 
@@ -27,21 +38,42 @@
             margin: auto;
         }
 
+        /* kinds of classification */
+        #classification {
+            width: 15%;
+            padding: 5px;
+            margin: 0 0 3% -1%;
+            text-align: center;
+            font-size: 2vmin;
+            font-weight: bold;
+            border: none;
+            color: #ffffff;
+            background-color: #84BA00;
+        }
+
+        /* both */
+        .both_question {
+            width: 100%;
+            float: left;
+        }
+
         /*  each of left group */
         .left_locate {
             text-align: center;
-            width: 48%;
+            width: 50%;
             margin: 0 auto;
             padding: 0;
+            position: relative;
             float: left;
         }
 
         /*  each of right group */
         .right_locate {
             text-align: center;
-            width: 48%;
+            width: 50%;
             margin: 0 auto;
             padding: 0;
+            position: relative;
             float: right;
         }
 
@@ -67,6 +99,12 @@
             font-size: 2.5vmin;
         }
 
+        .small_p {
+            font-size: 2vmin;
+            margin: 0 auto;
+            padding: 0;
+        }
+
         /*  button & p tag division */
         .slide_button_area {
             display: inline-block;
@@ -80,6 +118,12 @@
         .text {
             position: center;
             font-size: 2.5vmin;
+        }
+
+        .textNum {
+            font-size: 3.5vmin;
+            font-weight: bold;
+            margin: 0 auto;
         }
 
         /* result of choose button */
@@ -98,17 +142,19 @@
 
         /* next button area */
         #next_area {
+            width: 100%;
             text-align: right;
+            float: left;
         }
 
         /* next button size */
         #next {
             font-size: 2vmin;
-            width: 20%;
-            padding: 2%;
-            margin-bottom: 4%;
-            display: inline-block;
+            width: 10%;
+            padding: 1%;
+            margin: 2%;
             background: cornflowerblue;
+            display: inline-block;
         }
 
         #next_area > p {
@@ -127,109 +173,128 @@
 
         <!-- hidden data -->
         <input type="hidden" name="name" th:value="${name}">
+
         <input type="hidden" name="pet1" th:value="${pet1}">
         <input type="hidden" name="pet2" th:value="${pet2}">
         <input type="hidden" name="contain" th:value="${contain}">
         <input type="hidden" name="eggPlt" th:value="${eggPlt}">
         <input type="hidden" name="glove" th:value="${glove}">
-        <input type="hidden" name="clean1" th:value="${clean1}">
+        <input type="hidden" name="bagSmall" th:value="${bagSmall}">
         <!-- ----------- -->
 
-        <div class="right_locate">
-            <div class="img_div">
-                <img src="/images/jiheon2.jpg" class="img">
-                <p class="kinds">칫솔</p>
+        <div>
+            <input type="text" id="classification" value="포장·배달용기" readonly>
+        </div>
+
+        <div class="both_question">
+            <div class="left_locate">
+                <div class="img_div">
+                    <img src="/images/products/bagMiddle.jpg" class="img">
+                    <p class="kinds">봉투 中</p>
+                    <p class="small_p">(일반·택배)</p>
+                </div>
+                <div class="slide_button_area">
+                    <p class="textNum">0 <input type="range" id="bagMiddle" class="slide_button" name="bagMiddle"
+                                                min='0'
+                                                max='30'
+                                                value='0'
+                                                step='1' onchange="setValue(this)"/> 30</p>
+                    <p class="text">1주에 <input type="text" id="bagMiddlePrt" class="result_area" name="bagMiddlePrt"
+                                               placeholder="0"
+                                               readonly>개 사용합니다.</p>
+                </div>
             </div>
-            <div class="slide_button_area">
-                <p class="text">0 <input type="range" id="toothBrush" class="slide_button" name="toothBrush" min='0'
-                                         max='30'
-                                         value='0'
-                                         step='1' onchange="setValue(this)"/> 30</p>
-                <p class="text">1주에 <input type="text" id="toothBrushPrt" class="result_area" name="toothBrushPrt"
-                                           placeholder="0"
-                                           readonly>개 사용합니다.</p>
+
+            <div class="right_locate">
+                <div class="img_div">
+                    <img src="/images/products/bagBig.jpg" class="img">
+                    <p class="kinds">봉투 大</p>
+                    <p class="small_p">(20L)</p>
+                </div>
+                <div class="slide_button_area">
+                    <p class="textNum">0 <input type="range" id="bagBig" class="slide_button" name="bagBig" min='0'
+                                                max='30'
+                                                value='0'
+                                                step='1' onchange="setValue(this)"/> 30</p>
+                    <p class="text">1주에 <input type="text" id="bagBigPrt" class="result_area" name="bagBigPrt"
+                                               placeholder="0"
+                                               readonly>개 사용합니다.</p>
+                </div>
             </div>
         </div>
 
-        <div class="left_locate">
-            <div class="img_div">
-                <img src="/images/jiheon2.jpg" class="img">
-                <p class="kinds">치약</p>
+        <div class="both_question">
+            <div class="left_locate">
+                <div class="img_div">
+                    <img src="/images/products/deliveFood.jpg" class="img">
+                    <p class="kinds">배달 음식</p>
+                    <p class="small_p">(주문 횟수)</p>
+                </div>
+                <div class="slide_button_area">
+                    <p class="textNum">0 <input type="range" id="deliveFood" class="slide_button" name="deliveFood"
+                                                min='0' max='30'
+                                                value='0'
+                                                step='1' onchange="setValue(this)"/> 30</p>
+                    <p class="text">1주에 <input type="text" id="deliveFoodPrt" class="result_area" name="deliveFoodPrt"
+                                               placeholder="0"
+                                               readonly>번 먹습니다.</p>
+                </div>
             </div>
-            <div class="slide_button_area">
-                <p class="text">0 <input type="range" id="toothPaste" class="slide_button" name="toothPaste" min='0'
-                                         max='30'
-                                         value='0'
-                                         step='1' onchange="setValue(this)"/> 30</p>
-                <p class="text">1주에 <input type="text" id="toothPastePrt" class="result_area" name="toothPastePrt"
-                                           placeholder="0"
-                                           readonly>개 사용합니다.</p>
-            </div>
-        </div>
-
-        <div class="left_locate">
-            <div class="img_div">
-                <img src="/images/jiheon2.jpg" class="img">
-                <p class="kinds">샴푸·린스 (500ml)</p>
-            </div>
-            <div class="slide_button_area">
-                <p class="text">0 <input type="range" id="shampoo" class="slide_button" name="shampoo" min='0' max='30'
-                                         value='0'
-                                         step='1' onchange="setValue(this)"/> 30</p>
-                <p class="text">1주에 <input type="text" id="shampooPrt" class="result_area" name="shampooPrt"
-                                           placeholder="0"
-                                           readonly>개 사용합니다.</p>
-            </div>
-        </div>
-
-        <div class="right_locate">
-            <div class="img_div">
-                <img src="/images/jiheon2.jpg" class="img">
-                <p class="kinds">세안제 (150ml)</p>
-            </div>
-            <div class="slide_button_area">
-                <p class="text">0 <input type="range" id="clean2" class="slide_button" name="clean2" min='0' max='30'
-                                         value='0'
-                                         step='1' onchange="setValue(this)"/> 30</p>
-                <p class="text">1주에 <input type="text" id="clean2Prt" class="result_area" name="clean2Prt"
-                                           placeholder="0"
-                                           readonly>개 사용합니다.</p>
+            <div class="right_locate">
+                <div class="img_div">
+                    <img src="/images/products/spoon.jpg" class="img">
+                    <p class="kinds">1회용 수저</p>
+                    <p class="small_p"></p>
+                </div>
+                <div class="slide_button_area">
+                    <p class="textNum">0 <input type="range" id="spoon" class="slide_button" name="spoon" min='0'
+                                                max='30'
+                                                value='0'
+                                                step='1' onchange="setValue(this)"/> 30</p>
+                    <p class="text">1주에 <input type="text" id="spoonPrt" class="result_area" name="spoonPrt"
+                                               placeholder="0"
+                                               readonly>개 사용합니다.</p>
+                </div>
             </div>
         </div>
 
-        <div class="left_locate">
-            <div class="img_div">
-                <img src="/images/jiheon2.jpg" class="img">
-                <p class="kinds">화장품 (150ml)</p>
+        <div class="both_question">
+            <div class="left_locate">
+                <div class="img_div">
+                    <img src="/images/products/straw.jpg" class="img">
+                    <p class="kinds">1회용 빨대</p>
+                    <p class="small_p"></p>
+                </div>
+                <div class="slide_button_area">
+                    <p class="textNum">0 <input type="range" id="straw" class="slide_button" name="straw" min='0'
+                                                max='30'
+                                                value='0'
+                                                step='1' onchange="setValue(this)"/> 30</p>
+                    <p class="text">1주에 <input type="text" id="strawPrt" class="result_area" name="strawPrt"
+                                               placeholder="0"
+                                               readonly>개 사용합니다.</p>
+                </div>
             </div>
-            <div class="slide_button_area">
-                <p class="text">0 <input type="range" id="cosmetic" class="slide_button" name="cosmetic" min='0'
-                                         max='30'
-                                         value='0'
-                                         step='1' onchange="setValue(this)"/> 30</p>
-                <p class="text">1주에 <input type="text" id="cosmeticPrt" class="result_area" name="cosmeticPrt"
-                                           placeholder="0"
-                                           readonly>개 사용합니다.</p>
+
+            <div class="right_locate">
+                <div class="img_div">
+                    <img src="/images/products/cup.jpg" class="img">
+                    <p class="kinds">포장용 컵</p>
+                    <p class="small_p"></p>
+                </div>
+                <div class="slide_button_area">
+                    <p class="textNum">0 <input type="range" id="cup" class="slide_button" name="cup" min='0'
+                                                max='30'
+                                                value='0'
+                                                step='1' onchange="setValue(this)"/> 30</p>
+                    <p class="text">1주에 <input type="text" id="cupPrt" class="result_area" name="cupPrt"
+                                               placeholder="0"
+                                               readonly>개 사용합니다.</p>
+                </div>
             </div>
         </div>
 
-        <div class="right_locate">
-            <div class="img_div">
-                <img src="/images/jiheon2.jpg" class="img">
-                <p class="kinds">배달 음식 주문 횟수</p>
-            </div>
-            <div class="slide_button_area">
-                <p class="text">0 <input type="range" id="deliveFood" class="slide_button" name="deliveFood" min='0'
-                                         max='30'
-                                         value='0'
-                                         step='1' onchange="setValue(this)"/> 30</p>
-                <p class="text">1주에 <input type="text" id="deliveFoodPrt" class="result_area" name="deliveFoodPrt"
-                                           placeholder="0"
-                                           readonly>개 사용합니다.</p>
-            </div>
-        </div>
-
-        <div id="next_area" class="right_locate">
+        <div id="next_area">
             <p><b>2 / 9 &nbsp</b></p>
             <input type="submit" id="next" value="Next">
         </div>

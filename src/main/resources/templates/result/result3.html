@@ -5,6 +5,15 @@
     <title>결과</title>
     <style>
 
+        @font-face {
+            font-family: notosans;
+            src: url("/font/NotoSansCJKkr-Regular.otf") format("opentype");
+        }
+
+        * {
+            font-family: notosans;
+        }
+
         body {
             margin: 0 auto;
             width: 70%;
@@ -84,21 +93,21 @@
             <input type="hidden" name="contain" th:value="${contain}">
             <input type="hidden" name="eggPlt" th:value="${eggPlt}">
             <input type="hidden" name="glove" th:value="${glove}">
-            <input type="hidden" name="clean1" th:value="${clean1}">
+            <input type="hidden" name="bagSmall" th:value="${bagSmall}">
 
-            <input type="hidden" name="toothPaste" th:value="${toothPaste}">
-            <input type="hidden" name="toothBrush" th:value="${toothBrush}">
-            <input type="hidden" name="shampoo" th:value="${shampoo}">
-            <input type="hidden" name="clean2" th:value="${clean2}">
-            <input type="hidden" name="cosmetic" th:value="${cosmetic}">
+            <input type="hidden" name="bagMiddle" th:value="${bagMiddle}">
+            <input type="hidden" name="bagBig" th:value="${bagBig}">
             <input type="hidden" name="deliveFood" th:value="${deliveFood}">
-
             <input type="hidden" name="spoon" th:value="${spoon}">
             <input type="hidden" name="straw" th:value="${straw}">
             <input type="hidden" name="cup" th:value="${cup}">
-            <input type="hidden" name="bagBig" th:value="${bagBig}">
-            <input type="hidden" name="bagMiddle" th:value="${bagMiddle}">
-            <input type="hidden" name="bagSmall" th:value="${bagSmall}">
+
+            <input type="hidden" name="clean1" th:value="${clean1}">
+            <input type="hidden" name="shampoo" th:value="${shampoo}">
+            <input type="hidden" name="toothBrush" th:value="${toothBrush}">
+            <input type="hidden" name="toothPaste" th:value="${toothPaste}">
+            <input type="hidden" name="clean2" th:value="${clean2}">
+            <input type="hidden" name="cosmetic" th:value="${cosmetic}">
             <!-- ----------- -->
 
             <p><b>7 / 9 &nbsp</b>
