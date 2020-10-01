@@ -5,15 +5,24 @@
     <title>결과</title>
     <script>
         function perMonth() {
-            document.getElementById("whale").setAttribute("src", "/images/whale.png")
+            var result = document.getElementById("perOneYearResult").value;
+            document.getElementById("perImages").setAttribute("src", "/images/perOneYear.jpg")
+            document.getElementById("imageComment").innerHTML = "주차면적 12.5m2 기준";
+            document.getElementById("result").innerHTML = "약 " + result + "대의 주차공간만큼 일회용 플라스틱을 사용합니다.";
         }
 
         function perYear() {
-            document.getElementById("whale").setAttribute("src", "/images/whale2.png")
+            var result = document.getElementById("perTwentyYearsResult").value;
+            document.getElementById("perImages").setAttribute("src", "/images/perTwentyYear.jpg")
+            document.getElementById("imageComment").innerHTML = "내부 면적 84m2 기준";
+            document.getElementById("result").innerHTML = "아파트 " + result + "세대의 공간만큼 일회용 플라스틱을 사용합니다.";
         }
 
         function perTwentyYears() {
-            document.getElementById("whale").setAttribute("src", "/images/whale3.png")
+            var result = document.getElementById("perWholeYearsResult").value;
+            document.getElementById("perImages").setAttribute("src", "/images/perLife.jpg")
+            document.getElementById("imageComment").innerHTML = "내부 면적 84m2, 층당 2세대, 20층 기준";
+            document.getElementById("result").innerHTML = "84m2 20층 아파트 " + result + "개의 동을 만들 수 있어요.";
         }
     </script>
     <style>
@@ -69,12 +78,29 @@
         #content {
             width: 100%;
             height: 500px;
-            text-align: center;
         }
 
-        #whale {
+        #img_area {
+            width: 30%;
+            margin: 10% 0% 5% 5%;
+            display: inline-block;
+            float: left;
+        }
+
+        #perImages {
             width: 80%;
             margin: 0 auto;
+        }
+
+        #result_area {
+            width: 65%;
+            margin: 20% 0 5% 0;
+            display: inline-block;
+            float: right;
+        }
+
+        #result {
+            width: 100%;
         }
 
         /* next button area */
@@ -109,7 +135,14 @@
 </header>
 <div id="wrap">
     <div id="content">
-        <img src="" id="whale">
+        <div id="img_area">
+            <img src="" id="perImages">
+            <p id="imageComment" ></p>
+        </div>
+        <div id="result_area">
+            <h2 id="result"></h2>
+        </div>
+
     </div>
 
     <div id="next_area" class="right_locate">
@@ -117,6 +150,9 @@
 
             <!-- hidden data -->
             <input type="hidden" name="name" th:value="${name}">
+            <input type="hidden" id="perOneYearResult" name="perOneYearResult" th:value="${perOneYearResult}">
+            <input type="hidden" id="perTwentyYearsResult" name="perTwentyYearsResult" th:value="${perTwentyYearsResult}">
+            <input type="hidden" id="perWholeYearsResult" name="perWholeYearsResult" th:value="${perWholeYearsResult}">
 
             <input type="hidden" name="pet1" th:value="${pet1}">
             <input type="hidden" name="pet2" th:value="${pet2}">

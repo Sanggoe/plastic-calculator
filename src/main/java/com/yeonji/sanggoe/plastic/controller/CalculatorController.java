@@ -157,8 +157,14 @@ public class CalculatorController {
                              @RequestParam("cosmetic") int cosmetic,
                              Model model) {
 
+        int sum = pet1 + pet2 + contain + eggPlt + glove + bagSmall + bagMiddle + bagBig + deliveFood + spoon + straw + cup + clean1 + shampoo + toothBrush + toothPaste + clean2 + cosmetic;
+        String[] imageNames = calculateService.getScoreStrings(sum);
+
         model.addAttribute("name", name);
         model.addAttribute("today", DateObj.getInstance().toString());
+        model.addAttribute("sum", sum);
+        model.addAttribute("stampString", imageNames[0]);
+        model.addAttribute("commentString", imageNames[1]);
 
         model.addAttribute("pet1", pet1);
         model.addAttribute("pet2", pet2);
@@ -209,6 +215,13 @@ public class CalculatorController {
                               Model model) {
 
         model.addAttribute("name", name);
+        int[] results = calculateService.getResultPerYears(pet1, pet2, contain, eggPlt, glove, bagSmall, bagMiddle, bagBig, deliveFood, spoon, straw, cup, clean1, shampoo, toothBrush, toothPaste, clean2, cosmetic);
+        System.out.println(results[0]);
+        System.out.println(results[1]);
+        System.out.println(results[2]);
+        model.addAttribute("perOneYearResult", results[0]);
+        model.addAttribute("perTwentyYearsResult", results[1]);
+        model.addAttribute("perWholeYearsResult", results[2]);
 
         model.addAttribute("pet1", pet1);
         model.addAttribute("pet2", pet2);

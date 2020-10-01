@@ -32,10 +32,6 @@
             background-color: lightgray;
         }
 
-        #header {
-            font-size: 3vmin;
-        }
-
         /* main content */
         #wrap {
             width: 70%;
@@ -48,30 +44,41 @@
         #info_area {
             margin: 3% auto;
             width: 90%;
+            background-color: greenyellow;
         }
-
 
         #score_title_area {
             text-align: center;
             width: 100%;
+            background-color: green;
         }
 
         #score_title {
             display: inline-block;
             font-size: 3vmin;
             width: 50%;
-            margin: 0 0 0 23%;
+            margin: 0% auto;
+            background-color: #84BA00;
         }
 
         #grade {
             display: inline-block;
-            width: 15%;
-            margin: 0 12% 0 0;
+            width: 50%;
+            margin: 0 auto;
             float: right;
+            background-color: #ABCB4C;
         }
 
-        #grade > img {
+        #left_img {
+            width: 30%;
+            display: inline-block;
+            float: left;
+        }
+
+        #right_img {
             width: 100%;
+            display: inline-block;
+            float: right;
         }
 
         #score_subtitle {
@@ -162,7 +169,8 @@
                 <h1>성 적 표</h1>
             </div>
             <div id="grade">
-                <img src="/images/scoreStemp/stampA+.png">
+                <img th:src="${stampString}" id="left_img">
+                <img th:src="${commentString}" id="right_img">
             </div>
         </div>
 
@@ -294,7 +302,7 @@
             </tr>
             <tr>
                 <th>총계</th>
-                <th th:text="${pet1}+${pet2}+${contain}+${eggPlt}+${glove}+${bagSmall}+${bagMiddle}+${bagBig}+${deliveFood}+${spoon}+${straw}+${cup}+${clean1}+${shampoo}+${toothBrush}+${toothPaste}+${clean2}+${cosmetic}">0</th>
+                <th th:text="${sum}">0</th>
                 <th th:text="${pet1}*12+${pet2}*12+${contain}*12+${eggPlt}*12+${glove}*12+${bagSmall}*12+${bagMiddle}*12+${bagBig}*12+${deliveFood}*12+${spoon}*12+${straw}*12+${cup}*12+${clean1}*12+${shampoo}*12+${toothBrush}*12+${toothPaste}*12+${clean2}*12+${cosmetic}*12">0</th>
                 <th th:text="${pet1}*240+${pet2}*240+${contain}*240+${eggPlt}*240+${glove}*240+${bagSmall}*240+${bagMiddle}*240+${bagBig}*240+${deliveFood}*240+${spoon}*240+${straw}*240+${cup}*240+${clean1}*240+${shampoo}*240+${toothBrush}*240+${toothPaste}*240+${clean2}*240+${cosmetic}*240">0</th>
             </tr>
