@@ -53,18 +53,12 @@
             padding: 0;
         }
 
-        #earth {
-            width: 30%;
-            margin: 0 auto;
-            padding: 0;
-        }
-
         #background_area {
             position: relative;
         }
 
         #garbage_area {
-            width: 70%;
+            width: 80%;
             margin: 0 auto;
             padding: 0;
         }
@@ -101,8 +95,7 @@
 <div id="wrap">
     <div id="earth_area">
         <h3 th:text="'[플라스틱 절약 성적 채점중]'">플라스틱 사용량 산출중</h3>
-        <img src="/images/p4_earth.gif" id="earth">
-        <b><p th:text="${name} + '님이 사용한 쓰레기 양을 계산하고 있습니다..'">쓰레기 양 계산 중..</p></b>
+        <b><p th:text="${name} + '님의 플라스틱 성적을 채점하고 있습니다..'">쓰레기 양 계산 중..</p></b>
     </div>
 
     <div id="background_area">
