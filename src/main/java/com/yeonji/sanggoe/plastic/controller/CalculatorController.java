@@ -371,6 +371,7 @@ public class CalculatorController {
                                     @RequestParam("toothPaste") int toothPaste,
                                     @RequestParam("clean2") int clean2,
                                     @RequestParam("cosmetic") int cosmetic,
+                                    
                                     Model model) {
 
         int sum = pet1 + pet2 + contain + eggPlt + glove + bagSmall + bagMiddle + bagBig + deliveFood +
