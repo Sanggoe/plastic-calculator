@@ -3,6 +3,228 @@
 <head>
     <meta charset="UTF-8">
     <title>결과</title>
+    <script>
+        /* clicked reset function */
+        function resetPage() {
+            strawReplaceHidden()
+            bagReplaceHidden()
+            shampooReplaceHidden();
+            clean1ReplaceHidden();
+            toothbrushReplaceHidden();
+            cupReplaceHidden();
+            document.getElementById("select1").setAttribute("value", "");
+            document.getElementById("select2").setAttribute("value", "");
+            document.getElementById("select3").setAttribute("value", "");
+            document.getElementById("select4").setAttribute("value", "");
+            document.getElementById("select5").setAttribute("value", "");
+            document.getElementById("select6").setAttribute("value", "");
+            document.getElementById("replace1").setAttribute("value", "");
+            document.getElementById("replace2").setAttribute("value", "");
+            document.getElementById("replace3").setAttribute("value", "");
+            document.getElementById("replace4").setAttribute("value", "");
+            document.getElementById("replace5").setAttribute("value", "");
+            document.getElementById("replace6").setAttribute("value", "");
+            document.getElementById("replace7").setAttribute("value", "");
+            document.getElementById("replace8").setAttribute("value", "");
+            document.getElementById("replace9").setAttribute("value", "");
+            document.getElementById("replace10").setAttribute("value", "");
+            document.getElementById("replace11").setAttribute("value", "");
+            document.getElementById("replace12").setAttribute("value", "");
+
+            for (i = 0; i < document.getElementsByClassName("img_area").length; i++)
+                document.getElementsByClassName("img_area").item(i).style.border = "lightgray solid 5px";
+        }
+
+        /* make clicked area to green border */
+        function setBorderGreen(id) {
+            document.getElementById(id).style.border = "#C5E874 solid 5px"
+        }
+
+
+        /************** show replace contents and hidden contents **************/
+        function strawReplaceShow(id) {
+            bagReplaceHidden();
+            shampooReplaceHidden();
+            clean1ReplaceHidden();
+            toothbrushReplaceHidden();
+            cupReplaceHidden();
+            document.getElementById("straw_replace_area").style.display = "block";
+            setBorderGreen(id);
+            document.getElementById("select1").setAttribute("value", document.getElementById(id).getElementsByTagName("p").item(0).innerHTML)
+        }
+
+
+        function strawReplaceHidden() {
+            document.getElementById("straw_replace_area").style.display = "none";
+        }
+
+        function bagReplaceShow(id) {
+            strawReplaceHidden();
+            shampooReplaceHidden();
+            clean1ReplaceHidden();
+            toothbrushReplaceHidden();
+            cupReplaceHidden();
+            document.getElementById("bag_replace_area").style.display = "block"
+            setBorderGreen(id);
+            document.getElementById("select2").setAttribute("value", document.getElementById(id).getElementsByTagName("p").item(0).innerHTML)
+        }
+
+        function bagReplaceHidden() {
+            document.getElementById("bag_replace_area").style.display = "none";
+        }
+
+        function shampooReplaceShow(id) {
+            strawReplaceHidden();
+            bagReplaceHidden();
+            clean1ReplaceHidden();
+            toothbrushReplaceHidden();
+            cupReplaceHidden();
+            document.getElementById("shampoo_replace_area").style.display = "block"
+            setBorderGreen(id);
+            document.getElementById("select3").setAttribute("value", document.getElementById(id).getElementsByTagName("p").item(0).innerHTML)
+        }
+
+        function shampooReplaceHidden() {
+            document.getElementById("shampoo_replace_area").style.display = "none";
+        }
+
+        function clean1ReplaceShow(id) {
+            strawReplaceHidden();
+            bagReplaceHidden();
+            shampooReplaceHidden();
+            toothbrushReplaceHidden();
+            cupReplaceHidden();
+            document.getElementById("clean1_replace_area").style.display = "block"
+            setBorderGreen(id);
+            document.getElementById("select4").setAttribute("value", document.getElementById(id).getElementsByTagName("p").item(0).innerHTML)
+        }
+
+        function clean1ReplaceHidden() {
+            document.getElementById("clean1_replace_area").style.display = "none";
+        }
+
+        function toothbrushReplaceShow(id) {
+            strawReplaceHidden();
+            bagReplaceHidden();
+            shampooReplaceHidden();
+            clean1ReplaceHidden();
+            cupReplaceHidden();
+            document.getElementById("toothbrush_replace_area").style.display = "block"
+            setBorderGreen(id);
+            document.getElementById("select5").setAttribute("value", document.getElementById(id).getElementsByTagName("p").item(0).innerHTML)
+        }
+
+        function toothbrushReplaceHidden() {
+            document.getElementById("toothbrush_replace_area").style.display = "none";
+        }
+
+        function cupReplaceShow(id) {
+            strawReplaceHidden();
+            bagReplaceHidden();
+            shampooReplaceHidden();
+            clean1ReplaceHidden();
+            toothbrushReplaceHidden();
+            document.getElementById("cup_replace_area").style.display = "block"
+            setBorderGreen(id);
+            document.getElementById("select6").setAttribute("value", document.getElementById(id).getElementsByTagName("p").item(0).innerHTML)
+        }
+
+        function cupReplaceHidden() {
+            document.getElementById("cup_replace_area").style.display = "none";
+        }
+
+        /************************************ ************************************/
+
+
+        /************** do actions when selected each products **************/
+
+        function putThoseInBags() {
+            document.getElementById("straw_selected").innerHTML = document.getElementById("select1").getAttribute("value").toString()
+                + document.getElementById("replace1").getAttribute("value").toString()
+                + document.getElementById("replace2").getAttribute("value").toString()
+                + document.getElementById("replace3").getAttribute("value").toString()
+                + document.getElementById("replace4").getAttribute("value").toString();
+            document.getElementById("bag_selected").innerHTML = document.getElementById("select2").getAttribute("value").toString()
+                + document.getElementById("replace5").getAttribute("value").toString()
+                + document.getElementById("replace6").getAttribute("value").toString();
+            document.getElementById("shampoo_selected").innerHTML = document.getElementById("select3").getAttribute("value").toString()
+                + document.getElementById("replace7").getAttribute("value").toString()
+            document.getElementById("clean1_selected").innerHTML = document.getElementById("select4").getAttribute("value").toString()
+                + document.getElementById("replace8").getAttribute("value").toString();
+            document.getElementById("toothbrush_selected").innerHTML = document.getElementById("select5").getAttribute("value").toString()
+                + document.getElementById("replace9").getAttribute("value").toString();
+            document.getElementById("cup_selected").innerHTML = document.getElementById("select6").getAttribute("value").toString()
+                + document.getElementById("replace10").getAttribute("value").toString()
+                + document.getElementById("replace11").getAttribute("value").toString()
+                + document.getElementById("replace12").getAttribute("value").toString();
+        }
+
+        function woodStrawSelected(id) {
+            setBorderGreen(id);
+            document.getElementById("replace1").setAttribute("value", document.getElementById(id).getElementsByTagName("p").item(0).innerHTML)
+        }
+
+        function stainlessStrawSelected(id) {
+            setBorderGreen(id);
+            document.getElementById("replace2").setAttribute("value", document.getElementById(id).getElementsByTagName("p").item(0).innerHTML)
+        }
+
+        function siliconeStrawSelected(id) {
+            setBorderGreen(id);
+            document.getElementById("replace3").setAttribute("value", document.getElementById(id).getElementsByTagName("p").item(0).innerHTML)
+        }
+
+        function paperStrawSelected(id) {
+            setBorderGreen(id);
+            document.getElementById("replace4").setAttribute("value", document.getElementById(id).getElementsByTagName("p").item(0).innerHTML)
+        }
+
+        function reUseBagStrawSelected(id) {
+            setBorderGreen(id);
+            document.getElementById("replace5").setAttribute("value", document.getElementById(id).getElementsByTagName("p").item(0).innerHTML)
+        }
+
+        function echoBagStrawSelected(id) {
+            setBorderGreen(id);
+            document.getElementById("replace6").setAttribute("value", document.getElementById(id).getElementsByTagName("p").item(0).innerHTML)
+        }
+
+        function solidShampooSelected(id) {
+            setBorderGreen(id);
+            document.getElementById("replace7").setAttribute("value", document.getElementById(id).getElementsByTagName("p").item(0).innerHTML)
+        }
+
+        function natureCleanSelected(id) {
+            setBorderGreen(id);
+            document.getElementById("replace8").setAttribute("value", document.getElementById(id).getElementsByTagName("p").item(0).innerHTML)
+        }
+
+        function woodBrushSelected(id) {
+            setBorderGreen(id);
+            document.getElementById("replace9").setAttribute("value", document.getElementById(id).getElementsByTagName("p").item(0).innerHTML)
+        }
+
+        function mugCupSelected(id) {
+            setBorderGreen(id);
+            document.getElementById("replace10").setAttribute("value", document.getElementById(id).getElementsByTagName("p").item(0).innerHTML)
+        }
+
+        function uriCupSelected(id) {
+            setBorderGreen(id);
+            document.getElementById("replace11").setAttribute("value", document.getElementById(id).getElementsByTagName("p").item(0).innerHTML)
+        }
+
+        function tumbleCupSelected(id) {
+            setBorderGreen(id);
+            document.getElementById("replace12").setAttribute("value", document.getElementById(id).getElementsByTagName("p").item(0).innerHTML)
+        }
+
+        function addValue() {
+
+        }
+
+        /************************************ ************************************/
+    </script>
     <style>
 
         @font-face {
@@ -16,16 +238,16 @@
 
         body {
             margin: 0 auto;
-            width: 90%;
+            width: 100%;
         }
 
         header {
             font-size: 3vmin;
             font-weight: bold;
             text-align: center;
-            width: 80%;
+            width: 75%;
             margin: 0 auto;
-            padding: 0.5%;
+            padding: 0.2%;
             background-color: lightgray;
         }
 
@@ -36,34 +258,121 @@
             text-align: center;
         }
 
-        #content {
-            margin: 0 auto;
+        #left_content {
+            width: 35%;
+            margin: 0% 0% 2% 10%;
+            text-align: left;
+            float: left;
+        }
+
+        #center_content {
+            width: 10%;
+            margin: 10% 0% 0% 0%;
+            float: left;
+        }
+
+        .right_content {
+            width: 35%;
+            margin: 0% 10% 2% 0%;
+            text-align: left;
+            float: right;
+        }
+
+        #bottom_content {
+            width: 100%;
+            float: left;
+            background-color: #C5E874;
+        }
+
+        #text_content {
             width: 80%;
+            float: left;
+        }
+
+        #left_content > h2 {
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        #center_content > img {
+            width: 70%;
+        }
+
+        .right_content > h2 {
+            text-align: center;
+            margin: 0 auto;
         }
 
         .img_area {
-            width: 45%;
-            padding: 2%;
+            width: 20%;
+            margin: 2% 0% 0% 7%;
+            padding: 1%;
+            border: lightgray solid 5px;
+            border-radius: 10px;
+            text-align: center;
             display: inline-block;
+        }
+
+        .img_area > p {
+            margin: 0 auto;
+            padding: 0;
+            font-weight: bold;
         }
 
         .img {
             width: 100%;
         }
 
+        #resetButton {
+            width: 5%;
+            font-size: 1em;
+            font-weight: bold;
+            background-color: #C5E874;
+            margin: 0% 0% 0% 30%;
+            padding: 0;
+            position: absolute;
+        }
+
+        #straw_replace_area {
+            display: none;
+        }
+
+        #bag_replace_area {
+            display: none;
+        }
+
+        #shampoo_replace_area {
+            display: none;
+        }
+
+        #clean1_replace_area {
+            display: none;
+        }
+
+        #toothbrush_replace_area {
+            display: none;
+        }
+
+        #cup_replace_area {
+            display: none;
+        }
+
+
         /* next button area */
         #next_area {
-            width: 90%;
+            width: 10%;
+            margin: 5% 14% 0 0;
             text-align: right;
-            float: left;
+            float: right;
         }
 
         /* next button size */
         #next {
             font-size: 2vmin;
-            width: 10%;
-            padding: 1%;
-            margin: 0 auto;
+            font-weight: bold;
+            width: 50%;
+            padding: 5%;
+            margin: 0;
             background: cornflowerblue;
             display: inline-block;
         }
@@ -80,18 +389,127 @@
 </header>
 <div id="wrap">
     <div id="left_content">
-        <input type="button" src="">
+        <h2>일회용 플라스틱</h2>
+        <div onclick="strawReplaceShow(this.id)" id="straw_img_area" class="img_area">
+            <img id="straw" class="img" src="/images/products/straw.jpg">
+            <p>일회용빨대</p>
+        </div>
+        <div onclick="bagReplaceShow(this.id)" id="bag_img_area" class="img_area">
+            <img id="bagMiddle" class="img" src="/images/products/bagMiddle.jpg">
+            <p>비닐봉투</p>
+        </div>
+        <div onclick="shampooReplaceShow(this.id)" id="shampoo_img_area" class="img_area">
+            <img id="shampoo" class="img" src="/images/products/shampoo.jpg">
+            <p>샴푸</p>
+        </div>
+        <div onclick="clean1ReplaceShow(this.id)" id="clean1_img_area" class="img_area">
+            <img id="clean1" class="img" src="/images/products/clean1.jpg">
+            <p>세제</p>
+        </div>
+        <div onclick="toothbrushReplaceShow(this.id)" id="toothbrush_img_area" class="img_area">
+            <img id="toothbrush" class="img" src="/images/products/toothbrush.jpg">
+            <p>칫솔</p>
+        </div>
+        <div onclick="cupReplaceShow(this.id)" id="cup_img_area" class="img_area">
+            <img id="cup" class="img" src="/images/products/cup.jpg">
+            <p>포장용 컵</p>
+        </div>
+
     </div>
 
-    <div id="right_content">
+    <div id="center_content">
+        <img id="arrow" src="/images/replace/arrow.png" onclick="">
+    </div>
 
+
+    <div id="straw_replace_area" class="right_content">
+        <h2>대체 용품</h2>
+        <div onclick="woodStrawSelected(this.id)" id="woodStraw_img_area" class="img_area">
+            <img id="woodStraw" class="img" src="/images/replace/woodStraw.jpg" onclick="">
+            <p>대나무빨대</p>
+        </div>
+        <div onclick="stainlessStrawSelected(this.id)" id="stainlessStraw_img_area" class="img_area">
+            <img id="stainlessStraw" class="img" src="/images/replace/stainlessStraw.jpg" onclick="">
+            <p>스텐레스빨대</p>
+        </div>
+        <div onclick="siliconeStrawSelected(this.id)" id="siliconeStraw_img_area" class="img_area">
+            <img id="siliconeStraw" class="img" src="/images/replace/siliconeStraw.jpg" onclick="">
+            <p>실리콘빨대</p>
+        </div>
+        <div onclick="paperStrawSelected(this.id)" id="paperStraw_img_area" class="img_area">
+            <img id="paperStraw" class="img" src="/images/replace/paperStraw.jpg" onclick="">
+            <p>종이빨대</p>
+        </div>
+    </div>
+
+    <div id="bag_replace_area" class="right_content">
+        <h2>대체 용품</h2>
+        <div onclick="reUseBagStrawSelected(this.id)" id="reUseBag_img_area" class="img_area">
+            <img id="reUseBag" class="img" src="/images/replace/reUseBag.jpg" onclick="">
+            <p>리유즈백</p>
+        </div>
+        <div onclick="echoBagStrawSelected(this.id)" id="echoBag_img_area" class="img_area">
+            <img id="echoBag" class="img" src="/images/replace/echoBag.jpg" onclick="">
+            <p>에코백</p>
+        </div>
+    </div>
+
+    <div id="shampoo_replace_area" class="right_content">
+        <h2>대체 용품</h2>
+        <div onclick="solidShampooSelected(this.id)" id="solidShampoo_img_area" class="img_area">
+            <img id="solidShampoo" class="img" src="/images/replace/solidShampoo.jpg" onclick="">
+            <p>고체샴푸</p>
+        </div>
+    </div>
+
+    <div id="clean1_replace_area" class="right_content">
+        <h2>대체 용품</h2>
+        <div onclick="natureCleanSelected(this.id)" id="natureClean_img_area" class="img_area">
+            <img id="natureClean" class="img" src="/images/replace/natureClean.jpg" onclick="">
+            <p>천연세제</p>
+        </div>
+    </div>
+
+    <div id="toothbrush_replace_area" class="right_content">
+        <h2>대체 용품</h2>
+        <div onclick="woodBrushSelected(this.id)" id="woodBrush_img_area" class="img_area">
+            <img id="woodBrush" class="img" src="/images/replace/woodBrush.jpg" onclick="">
+            <p>대나무칫솔</p>
+        </div>
+    </div>
+
+    <div id="cup_replace_area" class="right_content">
+        <h2>대체 용품</h2>
+        <div onclick="mugCupSelected(this.id)" id="mugCup_img_area" class="img_area">
+            <img id="mugCup" class="img" src="/images/replace/mugCup.jpg" onclick="">
+            <p>머그컵</p>
+        </div>
+        <div onclick="uriCupSelected(this.id)" id="uriCup_img_area" class="img_area">
+            <img id="uriCup" class="img" src="/images/replace/uriCup.jpg" onclick="">
+            <p>유리컵</p>
+        </div>
+        <div onclick="tumbleCupSelected(this.id)" id="tumbleCup_img_area" class="img_area">
+            <img id="tumbleCup" class="img" src="/images/replace/tumbleCup.jpg" onclick="">
+            <p>텀블러</p>
+        </div>
     </div>
 
     <div id="bottom_content">
-
+        <h2 onclick="putThoseInBags()">다짐 장바구니
+            <input type="button" id="resetButton" onclick="resetPage()" value="RESET">
+        </h2>
     </div>
 
-    <div id="next_area" class="right_locate">
+    <div id="text_content">
+        <p id="straw_selected"></p>
+        <p id="bag_selected"></p>
+        <p id="shampoo_selected"></p>
+        <p id="clean1_selected"></p>
+        <p id="toothbrush_selected"></p>
+        <p id="cup_selected"></p>
+    </div>
+
+    <div id="next_area">
         <form action="/determination" method="post">
 
             <!-- hidden data -->
@@ -117,6 +535,27 @@
             <input type="hidden" name="toothPaste" th:value="${toothPaste}">
             <input type="hidden" name="clean2" th:value="${clean2}">
             <input type="hidden" name="cosmetic" th:value="${cosmetic}">
+
+            <!-- replace info -->
+            <input type="hidden" name="select1" id="select1" value="">
+            <input type="hidden" name="select2" id="select2" value="">
+            <input type="hidden" name="select3" id="select3" value="">
+            <input type="hidden" name="select4" id="select4" value="">
+            <input type="hidden" name="select5" id="select5" value="">
+            <input type="hidden" name="select6" id="select6" value="">
+
+            <input type="hidden" name="replace1" id="replace1" value="">
+            <input type="hidden" name="replace2" id="replace2" value="">
+            <input type="hidden" name="replace3" id="replace3" value="">
+            <input type="hidden" name="replace4" id="replace4" value="">
+            <input type="hidden" name="replace5" id="replace5" value="">
+            <input type="hidden" name="replace6" id="replace6" value="">
+            <input type="hidden" name="replace7" id="replace7" value="">
+            <input type="hidden" name="replace8" id="replace8" value="">
+            <input type="hidden" name="replace9" id="replace9" value="">
+            <input type="hidden" name="replace10" id="replace10" value="">
+            <input type="hidden" name="replace11" id="replace11" value="">
+            <input type="hidden" name="replace12" id="replace12" value="">
             <!-- ----------- -->
 
             <p><b>8 / 9 &nbsp</b>

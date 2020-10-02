@@ -7,8 +7,8 @@ public class CalculateService {
 
     public String[] getScoreStrings(int score) {
         String[] imagesName = new String[2];
-        imagesName[0] = "/images/scoreStemp/stamp"; //A+.png
-        imagesName[1] = "/images/scoreComment/comment"; //A+.png
+        imagesName[0] = "/images/scoreStemp/stamp";
+        imagesName[1] = "/images/scoreComment/comment";
 
         if (score <= 7) {
             imagesName[0] += "A+.png";
@@ -39,26 +39,14 @@ public class CalculateService {
         return imagesName;
     }
 
-    public int[] getResultPerYears(int pet1, int pet2, int contain, int eggPlt, int glove, int bagSmall, int bagMiddle, int bagBig, int deliveFood, int spoon, int straw, int cup, int clean1, int shampoo, int toothBrush, int toothPaste, int clean2, int cosmetic) {
+    public int[] getResultPerYears(int pet1, int pet2, int contain, int eggPlt, int glove, int bagSmall,
+                                   int bagMiddle, int bagBig, int deliveFood, int spoon, int straw, int cup,
+                                   int clean1, int shampoo, int toothBrush, int toothPaste, int clean2, int cosmetic) {
         int[] results = new int[3];
-        double sum = (pet1 * 132
-                + pet2 * 300
-                + contain * 132
-                + eggPlt * 870.07
-                + glove * 540
-                + bagSmall * 690 // ??
-                + bagMiddle * 50.24 // ??
-                + bagBig * 2919
-                + deliveFood * 380
-                + spoon * 29.7
-                + straw * 12.6
-                + cup * 135.8
-                + clean1 * 252
-                + shampoo * 232
-                + toothBrush * 22.2
-                + toothPaste * 96
-                + clean2 * 103
-                + cosmetic * 59.6);
+        double sum = (pet1 * 132 + pet2 * 300 + contain * 132 + eggPlt * 870.07 + glove * 540
+                + bagSmall * 690 + bagMiddle * 1705 + bagBig * 2919 + deliveFood * 380
+                + spoon * 29.7 + straw * 12.6 + cup * 135.8 + clean1 * 252 + shampoo * 232
+                + toothBrush * 22.2 + toothPaste * 96 + clean2 * 103 + cosmetic * 59.6);
 
         System.out.println(sum);
 

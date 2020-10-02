@@ -44,13 +44,11 @@
         #info_area {
             margin: 3% auto;
             width: 90%;
-            background-color: greenyellow;
         }
 
         #score_title_area {
             text-align: center;
             width: 100%;
-            background-color: green;
         }
 
         #score_title {
@@ -58,44 +56,45 @@
             font-size: 3vmin;
             width: 50%;
             margin: 0% auto;
-            background-color: #84BA00;
         }
 
-        #grade {
+        #stamp_img_area {
             display: inline-block;
-            width: 50%;
+            width: 10%;
             margin: 0 auto;
             float: right;
-            background-color: #ABCB4C;
+            position: absolute;
         }
 
-        #left_img {
-            width: 30%;
-            display: inline-block;
-            float: left;
-        }
-
-        #right_img {
-            width: 100%;
-            display: inline-block;
-            float: right;
+        #stamp_img {
+            width: 77%;
         }
 
         #score_subtitle {
-            width: 100%;
-        }
-
-        #left_h3 {
-            font-size: 3vmin;
-            position: relative;
+            width: 30%;
+            margin: 2% 0 2% 0;
+            display: inline-block;
             float: left;
         }
 
-        #right_h3 {
+        .sub_title {
             font-size: 3vmin;
-            position: relative;
+            text-align: left;
+            margin: 0 auto;
+        }
+
+        #comment_img_area {
+            width: 60%;
+            display: inline-block;
+            margin: 0 auto;
+            text-align: right;
             float: right;
         }
+
+        #comment_img {
+            width: 80%;
+        }
+
 
         #score_area {
             width: 95%;
@@ -139,15 +138,15 @@
         #next_area {
             width: 100%;
             text-align: right;
-            float: left;
+            float: right;
         }
 
         /* next button size */
         #next {
             font-size: 2vmin;
+            font-weight: bold;
             width: 10%;
             padding: 1%;
-            margin: 2%;
             background: cornflowerblue;
             display: inline-block;
         }
@@ -168,16 +167,17 @@
             <div id="score_title">
                 <h1>성 적 표</h1>
             </div>
-            <div id="grade">
-                <img th:src="${stampString}" id="left_img">
-                <img th:src="${commentString}" id="right_img">
+            <div id="stamp_img_area">
+                <img th:src="${stampString}" id="stamp_img">
             </div>
         </div>
 
         <div id="score_subtitle">
-            <h3 th:text="'이름: ' + ${name}" id="left_h3">이름: 김연코</h3>
-            <h3 th:text="${today}" id="right_h3">2020년 9월 27일</h3>
-            <br/>
+            <h3 th:text="'이름: ' + ${name}" class="sub_title">이름: 김연코</h3>
+            <h3 th:text="${today}" class="sub_title">2020년 9월 27일</h3>
+        </div>
+        <div id="comment_img_area">
+            <img th:src="${commentString}" id="comment_img">
         </div>
     </div>
 
@@ -303,8 +303,12 @@
             <tr>
                 <th>총계</th>
                 <th th:text="${sum}">0</th>
-                <th th:text="${pet1}*12+${pet2}*12+${contain}*12+${eggPlt}*12+${glove}*12+${bagSmall}*12+${bagMiddle}*12+${bagBig}*12+${deliveFood}*12+${spoon}*12+${straw}*12+${cup}*12+${clean1}*12+${shampoo}*12+${toothBrush}*12+${toothPaste}*12+${clean2}*12+${cosmetic}*12">0</th>
-                <th th:text="${pet1}*240+${pet2}*240+${contain}*240+${eggPlt}*240+${glove}*240+${bagSmall}*240+${bagMiddle}*240+${bagBig}*240+${deliveFood}*240+${spoon}*240+${straw}*240+${cup}*240+${clean1}*240+${shampoo}*240+${toothBrush}*240+${toothPaste}*240+${clean2}*240+${cosmetic}*240">0</th>
+                <th th:text="${pet1}*12+${pet2}*12+${contain}*12+${eggPlt}*12+${glove}*12+${bagSmall}*12+${bagMiddle}*12+${bagBig}*12+${deliveFood}*12+${spoon}*12+${straw}*12+${cup}*12+${clean1}*12+${shampoo}*12+${toothBrush}*12+${toothPaste}*12+${clean2}*12+${cosmetic}*12">
+                    0
+                </th>
+                <th th:text="${pet1}*240+${pet2}*240+${contain}*240+${eggPlt}*240+${glove}*240+${bagSmall}*240+${bagMiddle}*240+${bagBig}*240+${deliveFood}*240+${spoon}*240+${straw}*240+${cup}*240+${clean1}*240+${shampoo}*240+${toothBrush}*240+${toothPaste}*240+${clean2}*240+${cosmetic}*240">
+                    0
+                </th>
             </tr>
             </tbody>
         </table>
@@ -342,8 +346,7 @@
             <input type="hidden" name="cosmetic" th:value="${cosmetic}">
             <!-- ----------- -->
 
-            <p><b>5 / 9 &nbsp</b></p>
-            <input type="submit" id="next" value="후회돼요">
+            <p><b>5 / 9 &nbsp <input type="submit" id="next" value="후회돼요"></b></p>
         </form>
     </div>
 </div>

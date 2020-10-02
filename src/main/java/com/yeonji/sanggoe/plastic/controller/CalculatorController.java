@@ -157,7 +157,8 @@ public class CalculatorController {
                              @RequestParam("cosmetic") int cosmetic,
                              Model model) {
 
-        int sum = pet1 + pet2 + contain + eggPlt + glove + bagSmall + bagMiddle + bagBig + deliveFood + spoon + straw + cup + clean1 + shampoo + toothBrush + toothPaste + clean2 + cosmetic;
+        int sum = pet1 + pet2 + contain + eggPlt + glove + bagSmall + bagMiddle + bagBig + deliveFood +
+                spoon + straw + cup + clean1 + shampoo + toothBrush + toothPaste + clean2 + cosmetic;
         String[] imageNames = calculateService.getScoreStrings(sum);
 
         model.addAttribute("name", name);
@@ -372,9 +373,16 @@ public class CalculatorController {
                                     @RequestParam("cosmetic") int cosmetic,
                                     Model model) {
 
+        int sum = pet1 + pet2 + contain + eggPlt + glove + bagSmall + bagMiddle + bagBig + deliveFood +
+                spoon + straw + cup + clean1 + shampoo + toothBrush + toothPaste + clean2 + cosmetic;
+        String[] imageNames = calculateService.getScoreStrings(sum);
+
         model.addAttribute("name", name);
         model.addAttribute("today", DateObj.getInstance().toString());
-
+        model.addAttribute("sum", sum);
+        model.addAttribute("stampString", imageNames[0]);
+        model.addAttribute("commentString", imageNames[1]);
+        
         model.addAttribute("pet1", pet1);
         model.addAttribute("pet2", pet2);
         model.addAttribute("contain", contain);

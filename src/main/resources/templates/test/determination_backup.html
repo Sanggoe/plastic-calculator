@@ -20,13 +20,11 @@
         }
 
         header {
-            font-size: 2.5vmin;
-            font-weight: bold;
+            font-size: 3vmin;
             text-align: center;
             width: 100%;
             margin: 0 auto;
             padding: 0;
-            background-color: lightgray;
         }
 
         /* main content */
@@ -43,7 +41,6 @@
             border: gray solid 2px;
             margin: 1%;
         }
-
 
         /* info contents area */
         #info_area {
@@ -135,11 +132,12 @@
             overflow: hidden;
         }
 
-        .associate {
-            font-size: 3vmin;
+        #associate {
+            font-size: 2.3vmin;
         }
 
         /* *************************** */
+
 
         #second_wrap {
             border: gray solid 2px;
@@ -216,6 +214,9 @@
             background: cornflowerblue;
         }
 
+        #next_area > p {
+        }
+
     </style>
 </head>
 <body>
@@ -229,17 +230,15 @@
                 <div id="score_title">
                     <h1>성 적 표</h1>
                 </div>
-                <div id="stamp_img_area">
-                    <img th:src="${stampString}" id="stamp_img">
+                <div id="grade">
+                    <img src="/images/scoreStemp/stampA+.png">
                 </div>
             </div>
 
             <div id="score_subtitle">
-                <h3 th:text="'이름: ' + ${name}" class="sub_title">이름: 김연코</h3>
-                <h3 th:text="${today}" class="sub_title">2020년 9월 27일</h3>
-            </div>
-            <div id="comment_img_area">
-                <img th:src="${commentString}" id="comment_img">
+                <h3 th:text="'이름: ' + ${name}" id="left_h3">이름: 김연코</h3>
+                <h3 th:text="${today}" id="right_h3">2020년 9월 27일</h3>
+                <br/>
             </div>
         </div>
 
@@ -256,132 +255,127 @@
                 <tbody>
                 <tr>
                     <td class="table_kinds">페트병 (500ml)</td>
-                    <td th:text="${pet1}">1</td>
-                    <td th:text="${pet1}*12">1</td>
-                    <td th:text="${pet1}*240">1</td>
+                    <td th:text="${pet1}*4">1</td>
+                    <td th:text="${pet1}*52">1</td>
+                    <td th:text="${pet1}*1040">1</td>
                 </tr>
                 <tr>
                     <td class="table_kinds">페트병 (2L)</td>
-                    <td th:text="${pet2}">1</td>
-                    <td th:text="${pet2}*12">1</td>
-                    <td th:text="${pet2}*240">1</td>
+                    <td th:text="${pet2}*4">1</td>
+                    <td th:text="${pet2}*52">1</td>
+                    <td th:text="${pet2}*1040">1</td>
                 </tr>
                 <tr>
                     <td class="table_kinds">양념통 (500ml)</td>
-                    <td th:text="${contain}">1</td>
-                    <td th:text="${contain}*12">1</td>
-                    <td th:text="${contain}*240">1</td>
+                    <td th:text="${contain}*4">1</td>
+                    <td th:text="${contain}*52">1</td>
+                    <td th:text="${contain}*1040">1</td>
                 </tr>
                 <tr>
                     <td class="table_kinds">계란판</td>
-                    <td th:text="${eggPlt}">1</td>
-                    <td th:text="${eggPlt}*12">1</td>
-                    <td th:text="${eggPlt}*240">1</td>
+                    <td th:text="${eggPlt}*4">1</td>
+                    <td th:text="${eggPlt}*52">1</td>
+                    <td th:text="${eggPlt}*1040">1</td>
                 </tr>
                 <tr>
                     <td class="table_kinds">비닐장갑</td>
-                    <td th:text="${glove}">1</td>
-                    <td th:text="${glove}*12">1</td>
-                    <td th:text="${glove}*240">1</td>
+                    <td th:text="${glove}*4">1</td>
+                    <td th:text="${glove}*52">1</td>
+                    <td th:text="${glove}*1040">1</td>
                 </tr>
                 <tr>
                     <td class="table_kinds">봉투 소 (음식비닐)</td>
-                    <td th:text="${bagSmall}">1</td>
-                    <td th:text="${bagSmall}*12">1</td>
-                    <td th:text="${bagSmall}*240">1</td>
+                    <td th:text="${bagSmall}*4">1</td>
+                    <td th:text="${bagSmall}*52">1</td>
+                    <td th:text="${bagSmall}*1040">1</td>
                 </tr>
                 <tr>
                     <td class="table_kinds">봉투 중 (일반·택배)</td>
-                    <td th:text="${bagMiddle}">1</td>
-                    <td th:text="${bagMiddle}*12">1</td>
-                    <td th:text="${bagMiddle}*240">1</td>
+                    <td th:text="${bagMiddle}*4">1</td>
+                    <td th:text="${bagMiddle}*52">1</td>
+                    <td th:text="${bagMiddle}*1040">1</td>
                 </tr>
                 <tr>
                     <td class="table_kinds">봉투 대 (20L)</td>
-                    <td th:text="${bagBig}">1</td>
-                    <td th:text="${bagBig}*12">1</td>
-                    <td th:text="${bagBig}*240">1</td>
+                    <td th:text="${bagBig}*4">1</td>
+                    <td th:text="${bagBig}*52">1</td>
+                    <td th:text="${bagBig}*1040">1</td>
                 </tr>
                 <tr>
                     <td class="table_kinds">배달 음식 주문 횟수</td>
-                    <td th:text="${deliveFood}">1</td>
-                    <td th:text="${deliveFood}*12">1</td>
-                    <td th:text="${deliveFood}*240">1</td>
+                    <td th:text="${deliveFood}*4">1</td>
+                    <td th:text="${deliveFood}*52">1</td>
+                    <td th:text="${deliveFood}*1040">1</td>
                 </tr>
                 <tr>
                     <td class="table_kinds">1회용 수저</td>
-                    <td th:text="${spoon}">1</td>
-                    <td th:text="${spoon}*12">1</td>
-                    <td th:text="${spoon}*240">1</td>
+                    <td th:text="${spoon}*4">1</td>
+                    <td th:text="${spoon}*52">1</td>
+                    <td th:text="${spoon}*1040">1</td>
                 </tr>
                 <tr>
                     <td class="table_kinds">1회용 빨대</td>
-                    <td th:text="${straw}">1</td>
-                    <td th:text="${straw}*12">1</td>
-                    <td th:text="${straw}*240">1</td>
+                    <td th:text="${straw}*4">1</td>
+                    <td th:text="${straw}*52">1</td>
+                    <td th:text="${straw}*1040">1</td>
                 </tr>
                 <tr>
                     <td class="table_kinds">포장용 컵</td>
-                    <td th:text="${cup}">1</td>
-                    <td th:text="${cup}*12">1</td>
-                    <td th:text="${cup}*240">1</td>
+                    <td th:text="${cup}*4">1</td>
+                    <td th:text="${cup}*52">1</td>
+                    <td th:text="${cup}*1040">1</td>
                 </tr>
                 <tr>
                     <td class="table_kinds">청소·세탁용품</td>
-                    <td th:text="${clean1}">1</td>
-                    <td th:text="${clean1}*12">1</td>
-                    <td th:text="${clean1}*240">1</td>
+                    <td th:text="${clean1}*4">1</td>
+                    <td th:text="${clean1}*52">1</td>
+                    <td th:text="${clean1}*1040">1</td>
                 </tr>
                 <tr>
                     <td class="table_kinds">샴푸·린스 (500ml)</td>
-                    <td th:text="${shampoo}">1</td>
-                    <td th:text="${shampoo}*12">1</td>
-                    <td th:text="${shampoo}*240">1</td>
+                    <td th:text="${shampoo}*4">1</td>
+                    <td th:text="${shampoo}*52">1</td>
+                    <td th:text="${shampoo}*1040">1</td>
                 </tr>
                 <tr>
                     <td class="table_kinds">칫솔</td>
-                    <td th:text="${toothBrush}">1</td>
-                    <td th:text="${toothBrush}*12">1</td>
-                    <td th:text="${toothBrush}*240">1</td>
+                    <td th:text="${toothBrush}*4">1</td>
+                    <td th:text="${toothBrush}*52">1</td>
+                    <td th:text="${toothBrush}*1040">1</td>
                 </tr>
                 <tr>
                     <td class="table_kinds">치약</td>
-                    <td th:text="${toothPaste}">1</td>
-                    <td th:text="${toothPaste}*12">1</td>
-                    <td th:text="${toothPaste}*240">1</td>
+                    <td th:text="${toothPaste}*4">1</td>
+                    <td th:text="${toothPaste}*52">1</td>
+                    <td th:text="${toothPaste}*1040">1</td>
                 </tr>
                 <tr>
                     <td class="table_kinds">세안제 (150ml)</td>
-                    <td th:text="${clean2}">1</td>
-                    <td th:text="${clean2}*12">1</td>
-                    <td th:text="${clean2}*240">1</td>
+                    <td th:text="${clean2}*4">1</td>
+                    <td th:text="${clean2}*52">1</td>
+                    <td th:text="${clean2}*1040">1</td>
                 </tr>
                 <tr>
                     <td class="table_kinds">화장품 (150ml)</td>
-                    <td th:text="${cosmetic}">1</td>
-                    <td th:text="${cosmetic}*12">1</td>
-                    <td th:text="${cosmetic}*240">1</td>
+                    <td th:text="${cosmetic}*4">1</td>
+                    <td th:text="${cosmetic}*52">1</td>
+                    <td th:text="${cosmetic}*1040">1</td>
                 </tr>
                 <tr>
                     <th>총계</th>
-                    <th th:text="${sum}">0</th>
-                    <th th:text="${pet1}*12+${pet2}*12+${contain}*12+${eggPlt}*12+${glove}*12+${bagSmall}*12+${bagMiddle}*12+${bagBig}*12+${deliveFood}*12+${spoon}*12+${straw}*12+${cup}*12+${clean1}*12+${shampoo}*12+${toothBrush}*12+${toothPaste}*12+${clean2}*12+${cosmetic}*12">
-                        0
-                    </th>
-                    <th th:text="${pet1}*240+${pet2}*240+${contain}*240+${eggPlt}*240+${glove}*240+${bagSmall}*240+${bagMiddle}*240+${bagBig}*240+${deliveFood}*240+${spoon}*240+${straw}*240+${cup}*240+${clean1}*240+${shampoo}*240+${toothBrush}*240+${toothPaste}*240+${clean2}*240+${cosmetic}*240">
-                        0
-                    </th>
+                    <th th:text="${pet1}+${pet2}+${contain}+${eggPlt}+${glove}+${bagSmall}+${bagMiddle}+${bagBig}+${deliveFood}+${spoon}+${straw}+${cup}+${clean1}+${shampoo}+${toothBrush}+${toothPaste}+${clean2}+${cosmetic}">0</th>
+                    <th th:text="${pet1}*12+${pet2}*12+${contain}*12+${eggPlt}*12+${glove}*12+${bagSmall}*12+${bagMiddle}*12+${bagBig}*12+${deliveFood}*12+${spoon}*12+${straw}*12+${cup}*12+${clean1}*12+${shampoo}*12+${toothBrush}*12+${toothPaste}*12+${clean2}*12+${cosmetic}*12">0</th>
+                    <th th:text="${pet1}*240+${pet2}*240+${contain}*240+${eggPlt}*240+${glove}*240+${bagSmall}*240+${bagMiddle}*240+${bagBig}*240+${deliveFood}*240+${spoon}*240+${straw}*240+${cup}*240+${clean1}*240+${shampoo}*240+${toothBrush}*240+${toothPaste}*240+${clean2}*240+${cosmetic}*240">0</th>
                 </tr>
                 </tbody>
             </table>
 
-            <div id="associate">
+            <div class="associate">
                 <h1>플라스틱 다이어트 학교</h1>
             </div>
         </div>
     </div>
 </div>
-
 
 <div class="wrap">
     <div id="second_wrap">
@@ -422,7 +416,7 @@
         <input type="button" id="share" class="button" name="share" value="공유하기">
     </div>
 
-    <div id="next_area">
+    <div id="next_area" class="right_locate">
         <form action="/" method="get">
             <p><b>9 / 9 &nbsp</b>
                 <input type="submit" id="next" value="Home"></p>
