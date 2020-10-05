@@ -3,6 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>성적표</title>
+    <script>
+        window.onload = function button() {
+            for (i = 0; i < 3; i++) {
+                document.getElementById("group1_" + (i + 1)).innerHTML = document.getElementsByName("group1_" + (i + 1)).item(0).value;
+                document.getElementById("group2_" + (i + 1)).innerHTML = document.getElementsByName("group2_" + (i + 1)).item(0).value;
+            }
+        }
+    </script>
     <style>
 
         @font-face {
@@ -399,9 +407,10 @@
             </div>
 
             <div id="decide">
-                <h3><span style="color: #DD1919">일회용 빨대</span>를 <span style="color: #ABCB4C">실리콘 빨대</span>와
-                    <span style="color: #ABCB4C">빨대 쓰지 않기</span>로 대체하겠습니다.</h3>
-                <h3><span style="color: #DD1919">비닐봉투</span>를 <span style="color: #ABCB4C">리유즈백</span>으로 대체하겠습니다.</h3>
+                <h3><span style="color: #DD1919" id="group1_1"></span>(을)를 <span style="color: #ABCB4C" id="group1_2"></span>
+                    <span style="color: #ABCB4C" id="group1_3"></span>(으)로 대체하겠습니다.</h3>
+                <h3><span style="color: #DD1919" id="group2_1"></span>(을)를 <span style="color: #ABCB4C" id="group2_2"></span>
+                    <span style="color: #ABCB4C" id="group2_3"></span>(으)로 대체하겠습니다.</h3>
             </div>
 
             <div id="environment">
@@ -432,6 +441,15 @@
                 <input type="submit" id="next" value="Home"></p>
         </form>
     </div>
+
+    <!-- hidden data -->
+    <input type="hidden" name="group1_1" th:value="${group1_1}">
+    <input type="hidden" name="group1_2" th:value="${group1_2}">
+    <input type="hidden" name="group1_3" th:value="${group1_3}">
+    <input type="hidden" name="group2_1" th:value="${group2_1}">
+    <input type="hidden" name="group2_2" th:value="${group2_2}">
+    <input type="hidden" name="group2_3" th:value="${group2_3}">
+    <!-- ----------- -->
 </div>
 </body>
 </html>

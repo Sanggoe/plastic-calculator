@@ -74,7 +74,8 @@
                     cupReplaceHidden();
                     document.getElementById("straw_replace_area").style.display = "block";
                     setBorderGreen(id);
-                    document.getElementById("select1").setAttribute("value", document.getElementById(id).getElementsByTagName("p").item(0).innerHTML);
+                    document.getElementById("select1").setAttribute("value", document.getElementById(id)
+                        .getElementsByTagName("p").item(0).innerHTML);
                     toggleProducts[0] = true;
                     productsCount++;
                 }
@@ -294,7 +295,7 @@
 
 
         /************** do actions when selected each products **************/
-
+        var strings = ["straw", "bag", "shampoo", "clean1", "toothbrush", "cup"];
         function putThoseInBags() {
             document.getElementById("straw_selected").innerHTML = document.getElementById("select1").getAttribute("value").toString();
             document.getElementById("selected1").innerHTML = document.getElementById("replace1").getAttribute("value").toString();
@@ -319,6 +320,23 @@
             document.getElementById("selected10").innerHTML = document.getElementById("replace10").getAttribute("value").toString();
             document.getElementById("selected11").innerHTML = document.getElementById("replace11").getAttribute("value").toString();
             document.getElementById("selected12").innerHTML = document.getElementById("replace12").getAttribute("value").toString();
+
+            for (i = 0; i < 6; i++) {
+                if (!(document.getElementById("select" + (i + 1)).value == ""))
+                    document.getElementById(strings[i] + "_selected").style.display = "block";
+                else {
+                    document.getElementById(strings[i] + "_selected").style.display = "none";
+                }
+            }
+
+            for (i = 0; i < 12; i++) {
+                if (!(document.getElementById("replace" + (i + 1)).value == "")) {
+                    document.getElementById("selected" + (i + 1)).style.display = "block";
+                } else {
+                    document.getElementById("selected" + (i + 1)).style.display = "none";
+                }
+            }
+
         }
 
         function woodStrawSelected(id) {
@@ -596,6 +614,7 @@
             width: 100%;
             float: left;
             background-color: #C5E874;
+            margin: 0 0 2% 0;
         }
 
         #text_content {
@@ -673,78 +692,96 @@
             display: none;
         }
 
-
         #products_area {
             font-weight: bold;
-            text-align: left;
-            width: 10%;
-            margin: 0 0 0 35%;
+            text-align: center;
+            border: darkgray solid 3px;
+            border-radius: 10px;
+            width: 15%;
+            margin: 0 10% 0 40%;
+            padding: 3px;
             float: left;
-            /*background-color: lightyellow;*/
+        }
+
+        .subcommit {
+            font-weight: bold;
+            text-align: center;
+            margin: 10px auto;
+        }
+
+        #products_area > p {
+            font-weight: bold;
+            font-size: 1.1em;
         }
 
         .products {
             width: 90%;
             margin: 4%;
-            text-align: left;
-            float: left;
-            background-color: lightseagreen;
+            text-align: center;
+            display: none;
         }
 
         #replace_area {
-            width: 40%;
-            text-align: left;
+            width: 25%;
+            text-align: center;
+            border: darkgray solid 3px;
+            border-radius: 10px;
             margin: 0 auto;
+            padding: 3px;
             float: left;
-            /*background-color: lightblue;*/
+        }
+
+        #replace_area > p {
+            font-weight: bold;
+            font-size: 1.1em;
         }
 
         .straw_replace {
-            width: 20%;
+            width: 40%;
             margin: 1%;
             text-align: left;
             float: left;
-            /*background-color: lightgray;*/
+            display: none;
         }
 
         .bag_replace {
-            width: 20%;
+            width: 40%;
             margin: 1%;
             text-align: left;
             float: left;
-            /*background-color: lightcyan;*/
+            display: none;
         }
 
         .shampoo_replace {
-            width: 90%;
+            width: 80%;
             margin: 1%;
             text-align: left;
             float: left;
-            /*background-color: lightgoldenrodyellow;*/
+            display: none;
         }
 
         .clean1_replace {
-            width: 90%;
+            width: 80%;
             margin: 1%;
             text-align: left;
             float: left;
-            /*background-color: lightpink;*/
+            display: none;
         }
 
         .toothbrush_replace {
-            width: 90%;
+            width: 80%;
             margin: 1%;
             text-align: left;
             float: left;
-            /*background-color: lightgreen;*/
+            display: none;
         }
 
         .cup_replace {
-            width: 20%;
+            width: 40%;
             margin: 1%;
             text-align: left;
             float: left;
-            /*background-color: lightcoral;*/
+            display: none;
         }
 
 
@@ -752,7 +789,7 @@
         #next_area {
             width: 10%;
             margin: 5% 14% 0 0;
-            text-align: right;
+            text-align: left;
             float: right;
             /*background-color: #f0f0f0;*/
         }
@@ -886,33 +923,35 @@
     </div>
 
     <div id="bottom_content">
-        <h2 onclick="putThoseInBags()">다짐 장바구니
+        <h2 onclick="putThoseInBags()">다짐 장바구니 담기
             <input type="button" id="resetButton" onclick="resetPage()" value="RESET">
         </h2>
     </div>
 
     <div id="text_content">
         <div id="products_area">
-            <p id="straw_selected" class="products"></p>
-            <p id="bag_selected" class="products"></p>
-            <p id="shampoo_selected" class="products"></p>
-            <p id="clean1_selected" class="products"></p>
-            <p id="toothbrush_selected" class="products"></p>
-            <p id="cup_selected" class="products"></p>
+            <h3 class="subcommit">일회용</h3>
+            <p id="straw_selected" class="products" style="color: #DD1919"></p>
+            <p id="bag_selected" class="products" style="color: #DD1919"></p>
+            <p id="shampoo_selected" class="products" style="color: #DD1919"></p>
+            <p id="clean1_selected" class="products" style="color: #DD1919"></p>
+            <p id="toothbrush_selected" class="products" style="color: #DD1919"></p>
+            <p id="cup_selected" class="products" style="color: #DD1919"></p>
         </div>
         <div id="replace_area">
-            <p id="selected1" class="straw_replace"></p>
-            <p id="selected2" class="straw_replace"></p>
-            <p id="selected3" class="straw_replace"></p>
-            <p id="selected4" class="straw_replace"></p>
-            <p id="selected5" class="bag_replace"></p>
-            <p id="selected6" class="bag_replace"></p>
-            <p id="selected7" class="shampoo_replace"></p>
-            <p id="selected8" class="clean1_replace"></p>
-            <p id="selected9" class="toothbrush_replace"></p>
-            <p id="selected10" class="cup_replace"></p>
-            <p id="selected11" class="cup_replace"></p>
-            <p id="selected12" class="cup_replace"></p>
+            <h3 class="subcommit">대체 용품</h3>
+            <p id="selected1" class="straw_replace" style="color: #ABCB4C"></p>
+            <p id="selected2" class="straw_replace" style="color: #ABCB4C"></p>
+            <p id="selected3" class="straw_replace" style="color: #ABCB4C"></p>
+            <p id="selected4" class="straw_replace" style="color: #ABCB4C"></p>
+            <p id="selected5" class="bag_replace" style="color: #ABCB4C"></p>
+            <p id="selected6" class="bag_replace" style="color: #ABCB4C"></p>
+            <p id="selected7" class="shampoo_replace" style="color: #ABCB4C"></p>
+            <p id="selected8" class="clean1_replace" style="color: #ABCB4C"></p>
+            <p id="selected9" class="toothbrush_replace" style="color: #ABCB4C"></p>
+            <p id="selected10" class="cup_replace" style="color: #ABCB4C"></p>
+            <p id="selected11" class="cup_replace" style="color: #ABCB4C"></p>
+            <p id="selected12" class="cup_replace" style="color: #ABCB4C"></p>
         </div>
     </div>
 
