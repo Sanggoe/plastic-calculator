@@ -434,6 +434,26 @@ public class CalculatorController {
         model.addAttribute("clean2", clean2);
         model.addAttribute("cosmetic", cosmetic);
 
+        model.addAttribute("select1", select1);
+        model.addAttribute("select2", select2);
+        model.addAttribute("select3", select3);
+        model.addAttribute("select4", select4);
+        model.addAttribute("select5", select5);
+        model.addAttribute("select6", select6);
+        model.addAttribute("replace1", replace1);
+        model.addAttribute("replace2", replace2);
+        model.addAttribute("replace3", replace3);
+        model.addAttribute("replace4", replace4);
+        model.addAttribute("replace5", replace5);
+        model.addAttribute("replace6", replace6);
+        model.addAttribute("replace7", replace7);
+        model.addAttribute("replace8", replace8);
+        model.addAttribute("replace9", replace9);
+        model.addAttribute("replace10", replace10);
+        model.addAttribute("replace11", replace11);
+        model.addAttribute("replace12", replace12);
+
+
         return "/result/determination";
     }
 
@@ -490,6 +510,14 @@ public class CalculatorController {
                 select6, replace1, replace2, replace3, replace4, replace5, replace6, replace7, replace8,
                 replace9, replace10, replace11, replace12);
 
+        for(int i = 0; i < 3 && list[0][i] != null; i++) {
+            model.addAttribute("group1_" + (i+1), list[0][i]);
+        }
+
+        for(int i = 0; i < 3 && list[1][i] != null; i++) {
+            model.addAttribute("group2_" + (i+1), list[1][i]);
+        }
+
         model.addAttribute("name", name);
         model.addAttribute("today", DateObj.getInstance().toString());
         model.addAttribute("sum", sum);
@@ -517,6 +545,6 @@ public class CalculatorController {
         model.addAttribute("clean2", clean2);
         model.addAttribute("cosmetic", cosmetic);
 
-        return "/result/determination";
+        return "/result/shared";
     }
 }

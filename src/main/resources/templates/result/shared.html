@@ -2,69 +2,13 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>최종 결과</title>
+    <title>공유</title>
     <script>
         window.onload = function button() {
             for (i = 0; i < 3; i++) {
                 document.getElementById("group1_" + (i + 1)).innerHTML = document.getElementsByName("group1_" + (i + 1)).item(0).value;
                 document.getElementById("group2_" + (i + 1)).innerHTML = document.getElementsByName("group2_" + (i + 1)).item(0).value;
             }
-
-            document.getElementById("address").value = "http://localhost:8080/determination" +
-                "?name=" + document.getElementsByName("name").item(0).value +
-                "&pet1=" + document.getElementsByName("pet1").item(0).value +
-                "&pet2=" + document.getElementsByName("pet2").item(0).value +
-                "&contain=" + document.getElementsByName("contain").item(0).value +
-                "&eggPlt=" + document.getElementsByName("eggPlt").item(0).value +
-                "&glove=" + document.getElementsByName("glove").item(0).value +
-                "&bagSmall=" + document.getElementsByName("bagSmall").item(0).value +
-                "&bagMiddle=" + document.getElementsByName("bagMiddle").item(0).value +
-                "&bagBig=" + document.getElementsByName("bagBig").item(0).value +
-                "&deliveFood=" + document.getElementsByName("deliveFood").item(0).value +
-                "&spoon=" + document.getElementsByName("spoon").item(0).value +
-                "&straw=" + document.getElementsByName("straw").item(0).value +
-                "&cup=" + document.getElementsByName("cup").item(0).value +
-                "&clean1=" + document.getElementsByName("clean1").item(0).value +
-                "&shampoo=" + document.getElementsByName("shampoo").item(0).value +
-                "&toothBrush=" + document.getElementsByName("toothBrush").item(0).value +
-                "&toothPaste=" + document.getElementsByName("toothPaste").item(0).value +
-                "&clean2=" + document.getElementsByName("clean2").item(0).value +
-                "&cosmetic=" + document.getElementsByName("cosmetic").item(0).value +
-                "&select1=" + document.getElementsByName("select1").item(0).value +
-                "&select2=" + document.getElementsByName("select2").item(0).value +
-                "&select3=" + document.getElementsByName("select3").item(0).value +
-                "&select4=" + document.getElementsByName("select4").item(0).value +
-                "&select5=" + document.getElementsByName("select5").item(0).value +
-                "&select6=" + document.getElementsByName("select6").item(0).value +
-                "&replace1=" + document.getElementsByName("replace1").item(0).value +
-                "&replace2=" + document.getElementsByName("replace2").item(0).value +
-                "&replace3=" + document.getElementsByName("replace3").item(0).value +
-                "&replace4=" + document.getElementsByName("replace4").item(0).value +
-                "&replace5=" + document.getElementsByName("replace5").item(0).value +
-                "&replace6=" + document.getElementsByName("replace6").item(0).value +
-                "&replace7=" + document.getElementsByName("replace7").item(0).value +
-                "&replace8=" + document.getElementsByName("replace8").item(0).value +
-                "&replace9=" + document.getElementsByName("replace9").item(0).value +
-                "&replace10=" + document.getElementsByName("replace10").item(0).value +
-                "&replace11=" + document.getElementsByName("replace11").item(0).value +
-                "&replace12=" + document.getElementsByName("replace12").item(0).value;
-        }
-
-        function setting() {
-            alert("다운 까꿍");
-            document.getElementById("share").value = "change";
-            alert("변경 완료");
-        }
-
-        // copy
-        function CopyUrlToClipboard() {
-            var aux = document.createElement("input");
-            aux.setAttribute("value", document.getElementById("address").value);
-            document.body.appendChild(aux);
-            aux.select();
-            document.execCommand("copy");
-            document.body.removeChild(aux);
-            alert("주소가 복사되었습니다.");
         }
     </script>
 
@@ -258,15 +202,6 @@
         #comment > p {
             margin: 2px auto;
             text-align: left;
-        }
-
-        .button {
-            font-size: 2.5vmin;
-            font-weight: bold;
-            margin: 5%;
-            color: cornflowerblue;
-            border: none;
-            background-color: white;
         }
 
         /* next button area */
@@ -490,11 +425,6 @@
         </div>
     </div>
 
-    <div id="button_area">
-        <input type="button" id="download" class="button" name="download" value="다운로드" onclick="setting()">
-        <input type="button" id="share" class="button" name="share" value="공유하기" onclick="CopyUrlToClipboard()">
-    </div>
-
     <div id="next_area">
         <form action="/" method="get">
             <p><b>9 / 9 &nbsp</b>
@@ -503,56 +433,13 @@
     </div>
 
     <!-- hidden data -->
-    <input type="hidden" id="address" value="">
+    <input type="hidden" id="address" value="test">
     <input type="hidden" name="group1_1" th:value="${group1_1}">
     <input type="hidden" name="group1_2" th:value="${group1_2}">
     <input type="hidden" name="group1_3" th:value="${group1_3}">`
     <input type="hidden" name="group2_1" th:value="${group2_1}">
     <input type="hidden" name="group2_2" th:value="${group2_2}">
     <input type="hidden" name="group2_3" th:value="${group2_3}">
-
-    <input type="hidden" name="name" th:value="${name}">
-
-    <input type="hidden" name="pet1" th:value="${pet1}">
-    <input type="hidden" name="pet2" th:value="${pet2}">
-    <input type="hidden" name="contain" th:value="${contain}">
-    <input type="hidden" name="eggPlt" th:value="${eggPlt}">
-    <input type="hidden" name="glove" th:value="${glove}">
-    <input type="hidden" name="bagSmall" th:value="${bagSmall}">
-
-    <input type="hidden" name="bagMiddle" th:value="${bagMiddle}">
-    <input type="hidden" name="bagBig" th:value="${bagBig}">
-    <input type="hidden" name="deliveFood" th:value="${deliveFood}">
-    <input type="hidden" name="spoon" th:value="${spoon}">
-    <input type="hidden" name="straw" th:value="${straw}">
-    <input type="hidden" name="cup" th:value="${cup}">
-
-    <input type="hidden" name="clean1" th:value="${clean1}">
-    <input type="hidden" name="shampoo" th:value="${shampoo}">
-    <input type="hidden" name="toothBrush" th:value="${toothBrush}">
-    <input type="hidden" name="toothPaste" th:value="${toothPaste}">
-    <input type="hidden" name="clean2" th:value="${clean2}">
-    <input type="hidden" name="cosmetic" th:value="${cosmetic}">
-
-    <input type="hidden" name="select1" th:value="${select1}">
-    <input type="hidden" name="select2" th:value="${select2}">
-    <input type="hidden" name="select3" th:value="${select3}">
-    <input type="hidden" name="select4" th:value="${select4}">
-    <input type="hidden" name="select5" th:value="${select5}">
-    <input type="hidden" name="select6" th:value="${select6}">
-
-    <input type="hidden" name="replace1" th:value="${replace1}">
-    <input type="hidden" name="replace2" th:value="${replace2}">
-    <input type="hidden" name="replace3" th:value="${replace3}">
-    <input type="hidden" name="replace4" th:value="${replace4}">
-    <input type="hidden" name="replace5" th:value="${replace5}">
-    <input type="hidden" name="replace6" th:value="${replace6}">
-    <input type="hidden" name="replace7" th:value="${replace7}">
-    <input type="hidden" name="replace8" th:value="${replace8}">
-    <input type="hidden" name="replace9" th:value="${replace9}">
-    <input type="hidden" name="replace10" th:value="${replace10}">
-    <input type="hidden" name="replace11" th:value="${replace11}">
-    <input type="hidden" name="replace12" th:value="${replace12}">
     <!-- ----------- -->
 </div>
 </body>
