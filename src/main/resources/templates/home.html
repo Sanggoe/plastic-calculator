@@ -3,12 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>플라스틱 계산기</title>
-    <script>
-        function inputText() {
-            var data = document.getElementById("name").value;
-            location.href = "/survey1" + "?name=" + data;
-        }
-    </script>
     <style>
 
         @font-face {
@@ -88,11 +82,15 @@
                 함께 있다는 사실을 알고 계시나요?</p>
             <p>지금부터 당신의 플라스틱 성적을 함께 알아봅시다.</p>
         </div>
-        <div class="form-group">
-            <h5><label for="name">이름을 입력해주세요</label></h5>
-            <input type='name' id='name' name="name" placeholder="name"/>
-        </div>
-        <input type='button' id="next" onclick='inputText()' value='START!'/>
+
+        <form action="/survey1" method="post">
+            <div class="form-group">
+                <h5><label for="name">이름을 입력해주세요</label></h5>
+                <input type='name' id='name' name="name" placeholder="name"/>
+            </div>
+            <input type="submit" id="next" value='START!'/>
+        </form>
+
     </section>
 </div>
 

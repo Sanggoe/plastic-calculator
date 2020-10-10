@@ -13,16 +13,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class CalculatorController {
 
     CalculateService calculateService;
+    int count = 0;
 
     @Autowired
     public CalculatorController(CalculateService calculateService) {
         this.calculateService = calculateService;
     }
 
-    @GetMapping(value = "/survey1")
+    @PostMapping(value = "/survey1")
     public String confirmSurvey(@RequestParam(value = "name") String name, Model model) {
         model.addAttribute("name", name);
-        return "/calculator/survey1";
+        return "calculator/survey1";
     }
 
     @PostMapping("/survey2")
@@ -44,7 +45,7 @@ public class CalculatorController {
         model.addAttribute("glove", glove);
         model.addAttribute("bagSmall", bagSmall);
 
-        return "/calculator/survey2";
+        return "calculator/survey2";
     }
 
     @PostMapping("/survey3")
@@ -80,7 +81,7 @@ public class CalculatorController {
         model.addAttribute("straw", straw);
         model.addAttribute("cup", cup);
 
-        return "/calculator/survey3";
+        return "calculator/survey3";
     }
 
     @PostMapping("/waiting")
@@ -130,7 +131,7 @@ public class CalculatorController {
         model.addAttribute("clean2", clean2);
         model.addAttribute("cosmetic", cosmetic);
 
-        return "/result/waiting";
+        return "result/waiting";
     }
 
     @PostMapping("/scores")
@@ -188,7 +189,7 @@ public class CalculatorController {
         model.addAttribute("clean2", clean2);
         model.addAttribute("cosmetic", cosmetic);
 
-        return "/result/scores";
+        return "result/scores";
     }
 
     @PostMapping("/result1")
@@ -242,7 +243,7 @@ public class CalculatorController {
         model.addAttribute("clean2", clean2);
         model.addAttribute("cosmetic", cosmetic);
 
-        return "/result/result1";
+        return "result/result1";
     }
 
     @PostMapping("/result2")
@@ -292,7 +293,7 @@ public class CalculatorController {
         model.addAttribute("clean2", clean2);
         model.addAttribute("cosmetic", cosmetic);
 
-        return "/result/result2";
+        return "result/result2";
     }
 
     @PostMapping("/replace")
@@ -343,7 +344,7 @@ public class CalculatorController {
         model.addAttribute("clean2", clean2);
         model.addAttribute("cosmetic", cosmetic);
 
-        return "/result/replace";
+        return "result/replace";
     }
 
     @PostMapping("/determination")
@@ -408,6 +409,7 @@ public class CalculatorController {
         }
 
         model.addAttribute("name", name);
+        model.addAttribute("count", ++count);
         model.addAttribute("today", DateObj.getInstance().toString());
         model.addAttribute("sum", sum);
         model.addAttribute("stampString", imageNames[0]);
@@ -454,7 +456,7 @@ public class CalculatorController {
         model.addAttribute("replace12", replace12);
 
 
-        return "/result/determination";
+        return "result/determination";
     }
 
     @GetMapping("/determination")
@@ -545,6 +547,6 @@ public class CalculatorController {
         model.addAttribute("clean2", clean2);
         model.addAttribute("cosmetic", cosmetic);
 
-        return "/result/shared";
+        return "result/shared";
     }
 }

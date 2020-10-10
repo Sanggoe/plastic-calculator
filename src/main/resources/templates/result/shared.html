@@ -12,7 +12,6 @@
         }
     </script>
 
-
     <style>
 
         @font-face {
@@ -225,7 +224,7 @@
 </head>
 <body>
 <header>
-    <p>플라스틱 다이어트를 다짐하고 친구들과 공유해보세요!</p>
+    <p th:text="${name} + '님의 플라스틱 다이어트 다짐서 입니다!'">플라스틱 다이어트 다짐서</p>
 </header>
 <div class="wrap">
     <div id="first_wrap">
@@ -436,7 +435,7 @@
     <input type="hidden" id="address" value="test">
     <input type="hidden" name="group1_1" th:value="${group1_1}">
     <input type="hidden" name="group1_2" th:value="${group1_2}">
-    <input type="hidden" name="group1_3" th:value="${group1_3}">`
+    <input type="hidden" name="group1_3" th:value="${group1_3}">
     <input type="hidden" name="group2_1" th:value="${group2_1}">
     <input type="hidden" name="group2_2" th:value="${group2_2}">
     <input type="hidden" name="group2_3" th:value="${group2_3}">

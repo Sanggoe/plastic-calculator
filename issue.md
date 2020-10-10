@@ -485,4 +485,95 @@ Required int parameter 'shampoo' is not present
 
 <br/>
 
-### 다운로드 Button
+### jar 파일로 빌드 후 배포 문제
+
+* 정말 중요한 issue 였다. 로컬 환경에서는 구현이 다 끝났고 자체 톰캣 서버에서는 오류 없이 실행이 다 잘 되었다. 이제 서버에 올리기만 하면 끝나는 문제.
+* Spring boot의 좋은 점이, 톰캣 was 서버까지 내장하여 한번에 jar라는 확장자로 만들어 손쉽게 배포할 수 있다는 점이었다.
+
+<br/>
+
+![image-20201010100344956](./images/image-20201010100344956.png)
+
+* 해당 프로젝트파일의 root directory에 와보면, gradlew 라는 배치파일이 있다. 이것을 이용해 손쉽게 빌드 할 수 있다고 한다.
+
+<br/>
+
+![image-20201010100922020](./images/image-20201010100922020.png)
+
+* `./gradlew build` 명령어로 해당 프로젝트를 jar 파일로 빌드 할 수 있다.
+* 해당 명령어를 수행하면 Build 하여 build라는 폴더가 생기게 된다.
+
+<br/>
+
+![image-20201010101044459](./images/image-20201010101044459.png)
+
+* `build` - `libs` 폴더에 들어가면 `plastic-0.0.1-SNAPSHOT.jar` 파일이 생성된 것을 확인할 수 있다.
+
+<br/>
+
+![image-20201010101433378](./images/image-20201010101433378.png)
+
+* `./gradlew clean` 명령어는 해당 build 폴더 전체를 삭제시킨다. 따라서 만약 빌드나 배포가 잘 안되는 경우, `./gradlew clean build` 명령어로 해당 프로젝트를 jar 파일로 깔끔하게 다시 빌드 할 수 있다.
+
+<br/>
+
+![image-20201010101748376](./images/image-20201010101748376.png)
+
+* 배포도 쉽다. 해당 폴더로 들어가서 build된 jar 파일을 확인한다.
+* `java -jar plastic-0.0.1-SNAPSHOT.jar` 명령어를 이용해 배포하면 끝!
+* 아래 스프링 특유의 문구가 성공적으로 나오는 것을 볼 수 있다.
+
+<br/>
+
+![image-20201010101842308](./images/image-20201010101842308.png)
+
+* jar 파일로 만들어 local을 서버삼아 배포한 것이니, 반은 성공한 것이라고 볼 수 있다. 감격의 순간..!  ...도 잠시. 다음 페이지 버튼을 누르니 바로 에러가 나왔다.
+
+<br/>
+
+### 배포 후 issue - error server, status 500
+
+![image-20201010102233355](./images/image-20201010102233355.png)
+
+* 페이지 오류가 떴다. 배포도 처음이고, 배포 한 후 에러에 대해서도 처음 접하기 때문에 정말 막막했다. 에러 코드를 먼저 살펴보았다.
+* status=500은 지난번에 syntax오류 때 보았던 상태였던 것 같은데.. intelliJ 상에서 로컬 서버를 자체적으로 구동시켜 수행할 때는 아무 문제 없이 수행 되었던거 보면, 각 페이지들의 syntax 문제는 아닐 것 같았다.
+* mapping for /error?? 매핑에 문제 있는 것일까? 이 역시 controller에서 GetMapping, PostMapping으로 잘 해주었는데.. intelliJ 상에서 마찬가지로 문제 없이 잘 수행되었는데..
+
+![image-20201010102728968](./images/image-20201010102728968.png)
+
+* 웹 페이지가 아닌 서버 구동 콘솔에 표시된 에러도 확인해 보았다.
+
+  * ```
+    org.thymeleaf.exceptions.TemplateInputException: Error resolving template [/calculator/survey2], template might not ht not be accessible by any of the configured Template Resolvers
+    ```
+
+  * 템플릿 오류?? 해당 템플릿 파일에 접근할 수 없다는 내용의 오류인 것 같다. 흠...
+
+<br/>
+
+* 별 수 있나. 우선 구글링 해봤다. stackoverflow에 달린 `mapping for /error` 관련 질문은 도움이 되지 않았다.  [참고](https://stackoverflow.com/questions/31134333/this-application-has-no-explicit-mapping-for-error)
+* 먼저 경로상에 문제가 있는지 확인하는 것이었다. Application.java 실행 파일이 상위에 있고 그 하위 패키지들에 다른 파일들이 존재하는지 확인하라는 것. 전혀 문제 없었다.
+* 또한, 해당 사용자는 localhost:8080 페이지 조차 표시하지 못한다고 하니, 나와 다른 상황에서의 증상인 것 같았다.
+
+<br/>
+
+![image-20201010103325421](./images/image-20201010103325421.png)
+
+* 다음은 `@SpringBootApplication` 주석 등 어노테이션 문제 답변이 있었다. 고맙지만, 내 코드에서는 문제 없었다. 도움되지 않았던 답변. 그 외에도 이런저런 글들도 도움은 안됐다.
+* 웹 페이지 자체의 문제일까? 도 생각되어 찾아보았지만, 웹 페이지 내에서의 출력 형식 문제는 아닌 것 같았다. [참고](https://m.blog.naver.com/rladnfls0500/221492239422)
+
+<br/>
+
+#### solution
+
+* 그래도 일단 첫 페이지 home.html은 나오니까, 배포 자체에 문제는 없었다. 이번엔, `mapping for /error` 는 무엇일까, 이 키워드로도 검색해 보았다.
+* 그리고 여럿 탐방한 결과, 나와 정확히 일치하는 에러를 경험한 사람을 찾았다. 로컬에서 돌릴 때는 아무 이상이 없었는데, jar배포 후에 문제가 발생한 경우!! 이 사람은 문제 상황 이해를 위해 레퍼런스를 찾아보았다고 한다. (나도 실천해야겠다.)
+
+<br/>
+
+![image-20201010104311289](./images/image-20201010104311289.png)
+
+* jar 파일에서 classpath의 default 값은, `public/`, `resources/`, `static/`, `templates/`, `META-INF/**`, `*` 라고 한다. 즉, 결과만 단순히 말하면, 반환하는 주소에 /를 써서 그런 것이었다. IDE에서는 // 에 대한 처리를 해주지만, jar 배포시에는 처리해주지 못한다고 한다.
+* 즉, //calculator/ 이라는 경로에 존재하는 survey1.html 파일을 찾았으니, 매핑 오류가 발생했던 것이다. `return "calculator/survey1"` 으로 수정하니 바로 됐다. 너무 행복하다.
+* [참고](https://myserena.tistory.com/155)
+
