@@ -485,7 +485,7 @@ Required int parameter 'shampoo' is not present
 
 <br/>
 
-### jar 파일로 빌드 후 배포 문제
+### jar 파일로 빌드 후 배포
 
 * 정말 중요한 issue 였다. 로컬 환경에서는 구현이 다 끝났고 자체 톰캣 서버에서는 오류 없이 실행이 다 잘 되었다. 이제 서버에 올리기만 하면 끝나는 문제.
 * Spring boot의 좋은 점이, 톰캣 was 서버까지 내장하여 한번에 jar라는 확장자로 만들어 손쉽게 배포할 수 있다는 점이었다.
@@ -531,7 +531,7 @@ Required int parameter 'shampoo' is not present
 
 <br/>
 
-### 배포 후 issue - error server, status 500
+### local에 배포 후 issue - error server, status 500
 
 ![image-20201010102233355](./images/image-20201010102233355.png)
 
@@ -575,5 +575,12 @@ Required int parameter 'shampoo' is not present
 
 * jar 파일에서 classpath의 default 값은, `public/`, `resources/`, `static/`, `templates/`, `META-INF/**`, `*` 라고 한다. 즉, 결과만 단순히 말하면, 반환하는 주소에 /를 써서 그런 것이었다. IDE에서는 // 에 대한 처리를 해주지만, jar 배포시에는 처리해주지 못한다고 한다.
 * 즉, //calculator/ 이라는 경로에 존재하는 survey1.html 파일을 찾았으니, 매핑 오류가 발생했던 것이다. `return "calculator/survey1"` 으로 수정하니 바로 됐다. 너무 행복하다.
-* [참고](https://myserena.tistory.com/155)
 
+[참고](https://myserena.tistory.com/155)
+
+<br/>
+
+#### 서버에 배포
+
+* local에서 잘 동작하는 것을 확인 했으니 이제 호스팅할 서버를 결정해야 했다. 후보는 AWS, 그리고 전에 봤던 학생계정 Azure 등을 생각하고 있었다.
+* 우선 AWS는 전에 과금폭탄을 경험한 적이 있어서 지양하기로 했고, 이번엔 azure를 써보기로 했다.
