@@ -591,12 +591,13 @@ Required int parameter 'shampoo' is not present
 
 * jar 파일로
 * VMware Ubuntu server로 
-* docker 설치
+* docker 설치 
 * docker file 만들기
 * docker image 만들기
 * docker run으로 container에서 실행 잘 되는지 테스트
-* 다시 docker hub에 올리기 위해 image 이름 수정
+* 테스트 완료 후 container 종료 및 삭제
 * docker hub repository 만들기
+* 다시 docker hub에 올리기 위해 image 이름 수정하여 재 빌드 - 계정 이름/hub repository 이름 과 같아야 함
 * docker push id/tag
 * docker rmi imageName
 * docker pull id/tag
@@ -626,6 +627,14 @@ Required int parameter 'shampoo' is not present
 ![image-20201014001421052](./images/image-20201014001421052.png)
 
 * 두둥..!! Ubuntu OS의 VMware 서버가 개설 되었다. 생애 첫(은 아니고 몇년 전에 과금 경험..) 제대로된 서버 개설이다!
+
+<br/>
+
+![image-20201014015806819](./images/image-20201014015806819.png)
+
+* 단, 여기서 서버 IP주소로 접근하려면 네트워킹에서 인바운트 포트 규칙을 지정해주어야 한다.
+* 8080 Port를 어떤 주소에서든지 해당 포트로 접속을 시도하면 어떤 프로토콜이든 접근을 허용하는 규칙.
+* 보안상 위험이 있을 수 있다고 안내메시지가 나오지만 개인정보를 담은 것도 아니고, 서비스를 위함이니 상관 없다.
 
 <br/>
 
