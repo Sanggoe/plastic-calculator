@@ -163,7 +163,7 @@ public class CalculatorController {
         String[] imageNames = calculateService.getScoreStrings(sum);
 
         model.addAttribute("name", name);
-        model.addAttribute("today", DateObj.getInstance().toString());
+        model.addAttribute("today", new DateObj().toString());
         model.addAttribute("sum", sum);
         model.addAttribute("stampString", imageNames[0]);
         model.addAttribute("commentString", imageNames[1]);
@@ -321,7 +321,7 @@ public class CalculatorController {
                              Model model) {
 
         model.addAttribute("name", name);
-        model.addAttribute("today", DateObj.getInstance().toString());
+        model.addAttribute("today", new DateObj().toString());
 
         model.addAttribute("pet1", pet1);
         model.addAttribute("pet2", pet2);
@@ -400,17 +400,17 @@ public class CalculatorController {
                 select6, replace1, replace2, replace3, replace4, replace5, replace6, replace7, replace8,
                 replace9, replace10, replace11, replace12);
 
-        for(int i = 0; i < 3 && list[0][i] != null; i++) {
-            model.addAttribute("group1_" + (i+1), list[0][i]);
+        for (int i = 0; i < 3 && list[0][i] != null; i++) {
+            model.addAttribute("group1_" + (i + 1), list[0][i]);
         }
 
-        for(int i = 0; i < 3 && list[1][i] != null; i++) {
-            model.addAttribute("group2_" + (i+1), list[1][i]);
+        for (int i = 0; i < 3 && list[1][i] != null; i++) {
+            model.addAttribute("group2_" + (i + 1), list[1][i]);
         }
 
         model.addAttribute("name", name);
         model.addAttribute("count", ++count);
-        model.addAttribute("today", DateObj.getInstance().toString());
+        model.addAttribute("today", new DateObj().toString());
         model.addAttribute("sum", sum);
         model.addAttribute("stampString", imageNames[0]);
         model.addAttribute("commentString", imageNames[1]);
@@ -461,48 +461,48 @@ public class CalculatorController {
 
     @GetMapping("/determination")
     public String shareDetermination(@RequestParam(value = "name", defaultValue = "") String name,
-                                    @RequestParam(value = "pet1", defaultValue = "") int pet1,
-                                    @RequestParam(value = "pet2", defaultValue = "") int pet2,
-                                    @RequestParam(value = "contain", defaultValue = "") int contain,
-                                    @RequestParam(value = "eggPlt", defaultValue = "") int eggPlt,
-                                    @RequestParam(value = "glove", defaultValue = "") int glove,
-                                    @RequestParam(value = "bagSmall", defaultValue = "") int bagSmall, // before data
+                                     @RequestParam(value = "pet1", defaultValue = "") int pet1,
+                                     @RequestParam(value = "pet2", defaultValue = "") int pet2,
+                                     @RequestParam(value = "contain", defaultValue = "") int contain,
+                                     @RequestParam(value = "eggPlt", defaultValue = "") int eggPlt,
+                                     @RequestParam(value = "glove", defaultValue = "") int glove,
+                                     @RequestParam(value = "bagSmall", defaultValue = "") int bagSmall, // before data
 
-                                    @RequestParam(value = "bagMiddle", defaultValue = "") int bagMiddle,
-                                    @RequestParam(value = "bagBig", defaultValue = "") int bagBig,
-                                    @RequestParam(value = "deliveFood", defaultValue = "") int deliveFood,
-                                    @RequestParam(value = "spoon", defaultValue = "") int spoon,
-                                    @RequestParam(value = "straw", defaultValue = "") int straw,
-                                    @RequestParam(value = "cup", defaultValue = "") int cup,
+                                     @RequestParam(value = "bagMiddle", defaultValue = "") int bagMiddle,
+                                     @RequestParam(value = "bagBig", defaultValue = "") int bagBig,
+                                     @RequestParam(value = "deliveFood", defaultValue = "") int deliveFood,
+                                     @RequestParam(value = "spoon", defaultValue = "") int spoon,
+                                     @RequestParam(value = "straw", defaultValue = "") int straw,
+                                     @RequestParam(value = "cup", defaultValue = "") int cup,
 
-                                    @RequestParam(value = "clean1", defaultValue = "") int clean1,
-                                    @RequestParam(value = "shampoo", defaultValue = "") int shampoo,
-                                    @RequestParam(value = "toothBrush", defaultValue = "") int toothBrush,
-                                    @RequestParam(value = "toothPaste", defaultValue = "") int toothPaste,
-                                    @RequestParam(value = "clean2", defaultValue = "") int clean2,
-                                    @RequestParam(value = "cosmetic", defaultValue = "") int cosmetic,
+                                     @RequestParam(value = "clean1", defaultValue = "") int clean1,
+                                     @RequestParam(value = "shampoo", defaultValue = "") int shampoo,
+                                     @RequestParam(value = "toothBrush", defaultValue = "") int toothBrush,
+                                     @RequestParam(value = "toothPaste", defaultValue = "") int toothPaste,
+                                     @RequestParam(value = "clean2", defaultValue = "") int clean2,
+                                     @RequestParam(value = "cosmetic", defaultValue = "") int cosmetic,
 
-                                    @RequestParam(value = "select1", defaultValue = "") String select1,
-                                    @RequestParam(value = "select2", defaultValue = "") String select2,
-                                    @RequestParam(value = "select3", defaultValue = "") String select3,
-                                    @RequestParam(value = "select4", defaultValue = "") String select4,
-                                    @RequestParam(value = "select5", defaultValue = "") String select5,
-                                    @RequestParam(value = "select6", defaultValue = "") String select6,
+                                     @RequestParam(value = "select1", defaultValue = "") String select1,
+                                     @RequestParam(value = "select2", defaultValue = "") String select2,
+                                     @RequestParam(value = "select3", defaultValue = "") String select3,
+                                     @RequestParam(value = "select4", defaultValue = "") String select4,
+                                     @RequestParam(value = "select5", defaultValue = "") String select5,
+                                     @RequestParam(value = "select6", defaultValue = "") String select6,
 
-                                    @RequestParam(value = "replace1", defaultValue = "") String replace1,
-                                    @RequestParam(value = "replace2", defaultValue = "") String replace2,
-                                    @RequestParam(value = "replace3", defaultValue = "") String replace3,
-                                    @RequestParam(value = "replace4", defaultValue = "") String replace4,
-                                    @RequestParam(value = "replace5", defaultValue = "") String replace5,
-                                    @RequestParam(value = "replace6", defaultValue = "") String replace6,
-                                    @RequestParam(value = "replace7", defaultValue = "") String replace7,
-                                    @RequestParam(value = "replace8", defaultValue = "") String replace8,
-                                    @RequestParam(value = "replace9", defaultValue = "") String replace9,
-                                    @RequestParam(value = "replace10", defaultValue = "") String replace10,
-                                    @RequestParam(value = "replace11", defaultValue = "") String replace11,
-                                    @RequestParam(value = "replace12", defaultValue = "") String replace12,
+                                     @RequestParam(value = "replace1", defaultValue = "") String replace1,
+                                     @RequestParam(value = "replace2", defaultValue = "") String replace2,
+                                     @RequestParam(value = "replace3", defaultValue = "") String replace3,
+                                     @RequestParam(value = "replace4", defaultValue = "") String replace4,
+                                     @RequestParam(value = "replace5", defaultValue = "") String replace5,
+                                     @RequestParam(value = "replace6", defaultValue = "") String replace6,
+                                     @RequestParam(value = "replace7", defaultValue = "") String replace7,
+                                     @RequestParam(value = "replace8", defaultValue = "") String replace8,
+                                     @RequestParam(value = "replace9", defaultValue = "") String replace9,
+                                     @RequestParam(value = "replace10", defaultValue = "") String replace10,
+                                     @RequestParam(value = "replace11", defaultValue = "") String replace11,
+                                     @RequestParam(value = "replace12", defaultValue = "") String replace12,
 
-                                    Model model) {
+                                     Model model) {
 
         int sum = pet1 + pet2 + contain + eggPlt + glove + bagSmall + bagMiddle + bagBig + deliveFood +
                 spoon + straw + cup + clean1 + shampoo + toothBrush + toothPaste + clean2 + cosmetic;
@@ -512,16 +512,16 @@ public class CalculatorController {
                 select6, replace1, replace2, replace3, replace4, replace5, replace6, replace7, replace8,
                 replace9, replace10, replace11, replace12);
 
-        for(int i = 0; i < 3 && list[0][i] != null; i++) {
-            model.addAttribute("group1_" + (i+1), list[0][i]);
+        for (int i = 0; i < 3 && list[0][i] != null; i++) {
+            model.addAttribute("group1_" + (i + 1), list[0][i]);
         }
 
-        for(int i = 0; i < 3 && list[1][i] != null; i++) {
-            model.addAttribute("group2_" + (i+1), list[1][i]);
+        for (int i = 0; i < 3 && list[1][i] != null; i++) {
+            model.addAttribute("group2_" + (i + 1), list[1][i]);
         }
 
         model.addAttribute("name", name);
-        model.addAttribute("today", DateObj.getInstance().toString());
+        model.addAttribute("today", new DateObj().toString());
         model.addAttribute("sum", sum);
         model.addAttribute("stampString", imageNames[0]);
         model.addAttribute("commentString", imageNames[1]);

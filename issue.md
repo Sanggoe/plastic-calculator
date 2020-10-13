@@ -580,7 +580,98 @@ Required int parameter 'shampoo' is not present
 
 <br/>
 
-#### 서버에 배포
+### 배포
 
 * local에서 잘 동작하는 것을 확인 했으니 이제 호스팅할 서버를 결정해야 했다. 후보는 AWS, 그리고 전에 봤던 학생계정 Azure 등을 생각하고 있었다.
 * 우선 AWS는 전에 과금폭탄을 경험한 적이 있어서 지양하기로 했고, 이번엔 azure를 써보기로 했다.
+
+<br/>
+
+#### 배포 전 테스트
+
+* jar 파일로
+* VMware Ubuntu server로 
+* docker 설치
+* docker file 만들기
+* docker image 만들기
+* docker run으로 container에서 실행 잘 되는지 테스트
+* 다시 docker hub에 올리기 위해 image 이름 수정
+* docker hub repository 만들기
+* docker push id/tag
+* docker rmi imageName
+* docker pull id/tag
+* docker run으로 테스트
+* 잘 됨!! 이제 서버 파고 서버에 올리면 됨.
+
+<br/>
+
+#### 서버 개설
+
+* 전에 현업에 계신 동아리 누나가 알려준 팁이었는데, MS에서 학생 계정을 인증하면 1년에 100$ 씩 비용으로 지불 할 수 있는 크레딧을 지원해준다고 한다. 즉, 충분히 쓸 만큼 무료로 쓸 수 있다는 말이었다. 따라서 MS의 Azure 를 사용해보기로 했다.
+* 우선 ID@skuniv.ac.kr 학생 계정으로 인증하는데 시간이 조금 걸렸다. 
+
+![image-20201014000843601](./images/image-20201014000843601.png)
+
+* 학생용 Azure 인증! 이제 가상머신을 Ubuntu OS로 만들어준다.
+
+<br/>
+
+![image-20201014001127417](./images/image-20201014001127417.png)
+
+* 블라블라.. 필요한 정보들을 입력하고, ssh 접근 가능으로 바꿔준다. 그래야 내가 접근하지.
+* 크기는 적당한 크기의 작은 Standard_B1s 를 선택했다. '예상' 월 9.64$ 정도 부과된다고 한다.
+
+<br/>
+
+![image-20201014001421052](./images/image-20201014001421052.png)
+
+* 두둥..!! Ubuntu OS의 VMware 서버가 개설 되었다. 생애 첫(은 아니고 몇년 전에 과금 경험..) 제대로된 서버 개설이다!
+
+<br/>
+
+![image-20201014002116134](./images/image-20201014002116134.png)
+
+* 할당된 서버의 IP는 20.41.104.177 이었다. 이걸 putty와 비슷한, 새로 알게 된 MobaXterm 이라는 프로그램으로 서버에 접속한다.
+* ID와 PW를 입력하면... 접속 성공!! 이제 서버에 Docker를 설치하고, 이미지를 pull 받아 run 으로 실행시켜줘야 하므로, 기반부터 다운로드 하기로 했다.
+* 사실, 하나하나 입력할 수도 있지만 해당 명령어들까지 스크립트로 다 만들어져 있더라.
+* curl -fsSL https://get.docker.com/ | sudo sh 명령어로, 해당 스크립트 명령어를 받아서 자동으로 docker가 설치되도록 한다.
+
+<br/>
+
+![image-20201014002705799](./images/image-20201014002705799.png)
+
+* 그런데 웬 걸!? 무슨 권한이 거부되었단다. 혹시나 해서 로그인을 먼저 한 다음 해보려고 하니 거부가 된다!!
+* 찾아보니, docker는 root 권한이 있어야 수행할 수 있다고 한다. 따라서 다음 명령어를 통해 docker에게 root 권한을 준다.
+* 서버 계정 또한 적용이 필요하므로 서버를 로그아웃 했다가 다시 로그인 한다.
+
+```
+$ sudo usermod -a -G docker $USER
+$ sudo service docker restart
+```
+
+<br/>
+
+![image-20201014003052412](./images/image-20201014003052412.png)
+
+* 된다! 권한 문제였다. 우선 Docker Hub에 올려놓았던 plastic-calculator image를 pull 받는다.
+* Download가 느린데도 왜이리 터미널이 이뻐보이냐 :)
+
+<br/>
+
+![image-20201014003233915](./images/image-20201014003233915.png)
+
+* 마지막 Pull complete가 끝나고 latest image가 다운이 완료되었다는 출력 후, docker images를 입력한다.
+* computer012/plastic-calculator 이름의 image file이 만들어 진 것을 확인할 수 있다..!!
+
+<br/>
+
+![image-20201014003454716](./images/image-20201014003454716.png)
+
+* 감격의 순간이다... 이제 해당 서버 ip, 20.41.104.177에 포트번호 :8080 에 접근하면...
+
+<br/>
+
+![image-20201014012201669](./images/image-20201014012201669.png)
+
+* 최종 배포 테스트가 완료 되었다! 해당 서버 및 포트로 들어가서 여러 오류사항들을 확인했다.
+* 코드들을 수정 후 다시 빌드하여 재배포를 할 예정이다.

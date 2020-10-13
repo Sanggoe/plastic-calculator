@@ -7,21 +7,21 @@
         function perMonth() {
             var result = document.getElementById("perOneYearResult").value;
             document.getElementById("perImages").setAttribute("src", "/images/perOneYear.jpg")
-            document.getElementById("imageComment").innerHTML = "주차면적 12.5m2 기준";
+            document.getElementById("imageComment").innerHTML = "주차면적 12.5m^2 기준";
             document.getElementById("result").innerHTML = "약 " + result + "대의 주차공간만큼 일회용 플라스틱을 사용합니다.";
         }
 
         function perYear() {
             var result = document.getElementById("perTwentyYearsResult").value;
             document.getElementById("perImages").setAttribute("src", "/images/perTwentyYear.jpg")
-            document.getElementById("imageComment").innerHTML = "내부 면적 84m2 기준";
+            document.getElementById("imageComment").innerHTML = "내부 면적 84m^2 기준";
             document.getElementById("result").innerHTML = "아파트 " + result + "세대의 공간만큼 일회용 플라스틱을 사용합니다.";
         }
 
         function perTwentyYears() {
             var result = document.getElementById("perWholeYearsResult").value;
             document.getElementById("perImages").setAttribute("src", "/images/perLife.jpg")
-            document.getElementById("imageComment").innerHTML = "내부 면적 84m2, 층당 2세대, 20층 기준";
+            document.getElementById("imageComment").innerHTML = "내부 면적 84m^2, 층당 2세대, 20층 기준";
             document.getElementById("result").innerHTML = "84m2 20층 아파트 " + result + "개의 동을 만들 수 있어요.";
         }
     </script>
