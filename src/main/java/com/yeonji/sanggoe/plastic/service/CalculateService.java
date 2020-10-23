@@ -48,9 +48,9 @@ public class CalculateService {
                 + spoon * 29.7 + straw * 12.6 + cup * 135.8 + clean1 * 252 + shampoo * 232
                 + toothBrush * 22.2 + toothPaste * 96 + clean2 * 103 + cosmetic * 59.6);
 
-        results[0] = (int) (sum * 12 / 12.5);
-        results[1] = (int) (sum * 12 * 20 / 84);
-        results[2] = (int) (sum * 12 * 100 / 84 / 40);
+        results[0] = (int) (sum * 12 / 125000);
+        results[1] = (int) (sum * 12 * 20 / 840000);
+        results[2] = (int) (sum * 12 * 100 / 33600000);
 
         return results;
     }

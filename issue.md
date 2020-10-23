@@ -587,22 +587,104 @@ Required int parameter 'shampoo' is not present
 
 <br/>
 
-#### 배포 전 테스트
+#### jar 파일로 만들기 및 VMware Ubuntu server로 옮기기
 
-* jar 파일로
-* VMware Ubuntu server로 
-* docker 설치 
-* docker file 만들기
-* docker image 만들기
-* docker run으로 container에서 실행 잘 되는지 테스트
-* 테스트 완료 후 container 종료 및 삭제
-* docker hub repository 만들기
-* 다시 docker hub에 올리기 위해 image 이름 수정하여 재 빌드 - 계정 이름/hub repository 이름 과 같아야 함
-* docker push id/tag
-* docker rmi imageName
-* docker pull id/tag
-* docker run으로 테스트
-* 잘 됨!! 이제 서버 파고 서버에 올리면 됨.
+* `./gradlew clean build` 명령어를 통해 `jar` 파일로 빌드하는 작업을 수행했다.
+* 그리고 이미 local 환경에서 돌려보아 문제가 없음을 확인하였다.
+* 이제 이걸 서버에서 구동하기 위한 환경으로 Docker를 선택했다.
+* 그러기 위해서는 호스팅한 서버로 src 등을 이용해서 옮겨야하는데.. 너무 번거로웠다.
+* 1학기 수업때 사용을 위해 만들어 둔 VMware가 생각났고, 메일을 이용해 jar 파일을 VMware로 옮겼다.
+
+<br/>
+
+#### docker build
+
+* 우선 도커는 리눅스 기반으로 만들어진 프로그램이었기에.. 윈도우에서는 권장하지 않는다고 한다.
+* 도커에 대한 공부는 따로 정리하기 위해 설명은 생략하자!
+* 도커가 있는 환경 어디서든 호환이 되기 때문에, 도커 container에 담아서 구동하기로 했다.
+
+<br/>
+
+![image-20201023185310791](./images/image-20201023185310791.png)
+
+* 도커 이미지를 만들기 위해, 이미 만들어진 이미지 파일을 다운 받아야 한다.
+* 자바 프로젝트이기 때문에 jdk 환경을 포함하는 이미지를 선택해야 했기에 나는 `king019/jdk` 를 선택했다.
+* 뭐 jdk 환경만 있으면 되니까 아무거나 선택해도 상관 없다!
+* `docker pull king019/jdk` 명령어를 통해 해당 이미지를 다운받아준다.
+
+<br/>
+
+![image-20201023185556407](./images/image-20201023185556407.png)
+
+* `docker images` 명령어로 다운받은 이미지가 잘 있는지 확인한다.
+* 잘 있군! 너가 날 도와야겠다.
+
+<br/>
+
+![image-20201023184853251](./images/image-20201023184853251.png)
+
+* 다음은 `vi Dockerfile` 명령어로 도커파일을 생성해주고, 위 코드를 입력한다.
+* 토씨 하나 틀리면 안된다고 했던 것 같다. 역시 컴퓨터는 멍청하다. 절대 똑똑하지 않다...
+
+<br/>
+
+![image-20201023190410165](./images/image-20201023190410165.png)
+
+* 이렇게 도커 파일과 jar파일을 build하여 docker image로 만들었다.
+* 도커 허브에 올리려면, 이미지 이름은 반드시 아이디/레포지토리 이름과 같아야 한다.
+
+<br/>
+
+![image-20201023190810755](./images/image-20201023190810755.png)
+
+* 그래 도커 이미지로 빌드가 잘 되었구나 ^^
+* 도커 허브에 올리기 전에, 우선 docker container상에서 잘 작동하는지 테스트가 필요했다.
+
+<br/>
+
+![image-20201023190916095](./images/image-20201023190916095.png)
+
+* 따라서 `docker run -p 8080:8080 computer012/plastic-calculator` 명령어로 container상에 테스트!
+* 이제 docker container가 생성되어 그 안에서 서비스가 제공되고 있는 것이다.
+* 포트는 8080으로 연결해주었다.
+
+<br/>
+
+![image-20201023191049411](./images/image-20201023191049411.png)
+
+* localhost:8080 주소로 접속하면, 정상적으로 첫 페이지가 뜨는 것을 확인할 수 있다!
+* 이제 모든 테스트는 끝났다. 감격의 순간에 한 걸음 다가선 것 같다.
+* 남은 일은 docker hub에 올리는 것, 그리고 호스팅한 서버에서 docker pull을 받아 run 해주면 끝이다.
+
+<br/>
+
+![image-20201023191625616](./images/image-20201023191625616.png)
+
+* 테스트 완료 후 container는 종료하고 삭제 해준다.
+* 우선 실행중인 container 확인을 위해 `docker container ls -l` 명령어로 ID를 확인한다.
+* 그 후 `docker container rm CONTAINER ID` 명령어로 해당 container를 삭제시켜준다.
+
+<br/>
+
+#### docker hub
+
+![image-20201023190616871](./images/image-20201023190616871.png)
+
+* 도커 허브를 생성했다. 아이디/레포지토리명 을 이미지와 동일하게 해주어야 했기에, 이렇게 생성했다.
+
+<br/>
+
+![image-20201023193604555](./images/image-20201023193604555.png)
+
+* 이제 docker hub에 해당 image 파일을 올려준다.
+
+* `docker push id/repositoryName` 형식으로 해주면 된다.
+
+<br/>
+
+![image-20201023193650048](./images/image-20201023193650048.png)
+
+* 이렇게 Docker hub repository에서도 Last pushed가 몇초 전으로 바뀐 것을 확인할 수 있다!
 
 <br/>
 
@@ -619,14 +701,15 @@ Required int parameter 'shampoo' is not present
 
 ![image-20201014001127417](./images/image-20201014001127417.png)
 
-* 블라블라.. 필요한 정보들을 입력하고, ssh 접근 가능으로 바꿔준다. 그래야 내가 접근하지.
+* 블라블라.. 필요한 정보들을 입력하는데, 서버 메모리 용량을 선택해준다.
 * 크기는 적당한 크기의 작은 Standard_B1s 를 선택했다. '예상' 월 9.64$ 정도 부과된다고 한다.
 
 <br/>
 
 ![image-20201014001421052](./images/image-20201014001421052.png)
 
-* 두둥..!! Ubuntu OS의 VMware 서버가 개설 되었다. 생애 첫(은 아니고 몇년 전에 과금 경험..) 제대로된 서버 개설이다!
+* 두둥..!! Ubuntu OS의 VMware 서버가 개설 되었다.
+* 생애 첫(은 아니고 몇년 전에 과금 경험..) 제대로된 서버 개설이다!
 
 <br/>
 
@@ -638,12 +721,18 @@ Required int parameter 'shampoo' is not present
 
 <br/>
 
+#### 서버 설정 및 배포
+
 ![image-20201014002116134](./images/image-20201014002116134.png)
 
-* 할당된 서버의 IP는 20.41.104.177 이었다. 이걸 putty와 비슷한, 새로 알게 된 MobaXterm 이라는 프로그램으로 서버에 접속한다.
+* 처음 테스트 때 할당된 서버의 IP는 20.41.104.177 이었다. 이걸 putty와 비슷한, 새로 알게 된 MobaXterm 이라는 프로그램으로 서버에 접속한다.
 * ID와 PW를 입력하면... 접속 성공!! 이제 서버에 Docker를 설치하고, 이미지를 pull 받아 run 으로 실행시켜줘야 하므로, 기반부터 다운로드 하기로 했다.
 * 사실, 하나하나 입력할 수도 있지만 해당 명령어들까지 스크립트로 다 만들어져 있더라.
-* curl -fsSL https://get.docker.com/ | sudo sh 명령어로, 해당 스크립트 명령어를 받아서 자동으로 docker가 설치되도록 한다.
+* `curl -fsSL https://get.docker.com/ | sudo sh` 명령어로, 해당 스크립트 명령어를 받아서 자동으로 docker가 설치되도록 한다.
+
+<br/>
+
+* 이제 docker hub에서 올려놓았던 image를 pull 받아와야 했다.
 
 <br/>
 
@@ -662,7 +751,8 @@ $ sudo service docker restart
 
 ![image-20201014003052412](./images/image-20201014003052412.png)
 
-* 된다! 권한 문제였다. 우선 Docker Hub에 올려놓았던 plastic-calculator image를 pull 받는다.
+* 된다! 권한 문제였다.
+* Docker Hub에 올려놓았던 plastic-calculator image를 pull 받는다.
 * Download가 느린데도 왜이리 터미널이 이뻐보이냐 :)
 
 <br/>
