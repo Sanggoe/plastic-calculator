@@ -794,3 +794,17 @@ $ sudo service docker restart
 <br/>
 
 #### Project Complete!
+
+.
+
+.
+
+.
+
+#### 인줄 알았지만, 새로운 issue가 발생했다. 치명적인 부분.
+
+### Docker container run
+
+* docker run 명령어를 수행했는데, 정상적으로 잘 된다.
+* 근데, 터미널을 닫으면 container가 
+* 그래서 해결한게 docker run -d -p 8080:8080 computer012/plastic-calculator 명령어이다!
